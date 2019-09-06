@@ -1,25 +1,34 @@
-
-
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Splitease</title>
+    <title>Dashboard | ExpendiShare</title>
     <link rel="stylesheet" href="../css/main.css"><!--  change link -->
 </head>
 
 <body>
+    <!--Navigation Bar-->
+    <header>
+        <h1 class="logo">ExpendiShare</h1>
+        <nav>
+            <ul class="nav-links">
+                <li ><a class="active" href="./index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li>&#9776;</li>
+            </ul>
+        </nav>
+        <a class="cta" href="../php2/logout.php" onclick="return confirm('Are you sure to logout?')"><button>Log Out</button></a>
+    </header>
     <!-- remove styles -->
-    <a style="position: relative; top: 20px; left: 1440px;" href = "../php2/logout.php" onclick="return confirm('Are you sure to logout?');">Log Out</a>
+    <!--<a style="position: relative; top: 20px; left: 1440px;" href = "../php2/logout.php" onclick="return confirm('Are you sure to logout?');">Log Out</a>-->
     <h1 style="text-align: center; margin-top: 200px;">Dashboard</h1><br>
     <h2 style="color:white; text-align: center;">Pickup where you left</h2>
     
     <script src = "#"></script>
-        
-    </script>    
+    
+</script>    
 </body>
 </html>

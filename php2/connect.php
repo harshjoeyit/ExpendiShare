@@ -2,8 +2,8 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "4004";
-$dbname = "splitease";
+$password = "";
+$dbname = "ExpendiShare";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
