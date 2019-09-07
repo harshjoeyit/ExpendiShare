@@ -27,8 +27,14 @@
     <h1 style="text-align: center; margin-top: 200px;">Dashboard</h1><br>
     <h2 style="color:white; text-align: center;">Pickup where you left</h2>
     
-    <script src = "#"></script>
-    
-</script>    
-</body>
+    <!-- seperate the styles in seperate css file for dashboard -->
+    <form action = "../php2/email_invite.php" method = "post" style="margin-top: 20px; color:white; text-align: center;">
+        <input type="email" name="email" placeholder="Friend's Email*" required>
+        <input type="submit" name = "send" value="send">
+        <!-- <div id = "msg">send mail status</div> -->
+    </form>
+
+    <script src = "../js/jquery-3.4.1.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>   
 </html>
