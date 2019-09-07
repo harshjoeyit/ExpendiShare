@@ -65,6 +65,10 @@ header{
     font-family: "Montserrat", sans-serif;
     margin-right: auto;
 }
+/*### Eye button for password ###*/
+.eye{
+    position: relative;
+}
 
 /* ######### Navigation Bar Designing ######### */
 
@@ -263,8 +267,3 @@ section{
 .container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
-
-
-
-
-

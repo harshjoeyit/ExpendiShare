@@ -1,0 +1,28 @@
+.main-content{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: auto;
+    background-color: #FFEDDF;
+    opacity: 1;
+    border-radius: 10px;
+    padding: 15px;
+    height: 860px;
+}
+.container{
+    display: block;
+    background-color: #FFEDDF;
+    height: 400px;
+    width: 100%;
+    opacity:1;
+}
+/* aside{
+    display: inline-flex;
+    flex-direction: row;
+    width: 20%;
+    background-color: #E3E4DB;
+    opacity: 0.5;
+    border-radius: 10px;
+    padding: 15px;
+    height: 860px;
+} */
