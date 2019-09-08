@@ -6,8 +6,9 @@
     padding: 0;
 }
 body{
-    background-color: #011627;
+    background: #011627;
 }
+
 li, a, button{
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -16,20 +17,21 @@ li, a, button{
     text-decoration: none;
     
 }
-h1{
+h1,h2{
     font-weight: bold;
     margin:0;
     color: #FFEDDF;
     font-size: 40px;
     font-family: "Montserrat", sans-serif;
-    
 }
 header{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
     overflow: hidden;
+    background: #011627;
+    min-height: 9vh;
 }
 .logo{
     cursor: pointer;
@@ -41,14 +43,20 @@ header{
     margin-right: auto;
     border: 3px;
     border-style: solid;
-    border-color: #DB2955;
+    border-color:#DB2955;
     border-radius: 10px;
 }
+.menu{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
 /* ######### Navigation Bar Designing ######### */
 
 .nav-links{
     list-style: none;
     overflow: hidden;
+    display: flex
 }
 .nav-links li{
     display: inline-block;
@@ -80,12 +88,42 @@ button:active{
 nav ul.nav-links li a.active{
     color: #DB2955;
 }
+.menu{
+    display: none;
+    cursor: pointer;
+}
 /* ######## Mobile Responsive Navigation Bar ############ */
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1024){
     .nav-links{
-        display: none;
+        width: 60%;
     }
-    button{
-        display: none;
+}
+@media screen and (max-width: 768px) {
+    body{
+        overflow-x: hidden;
     }
+    .nav-links{
+        position: absolute;
+        right:0px;
+        display: flex;
+        flex-direction: column;
+        top: 9vh;
+        height: 92vh;
+        background: #011627;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .cta{
+        display: block;
+    }
+    .menu{
+        display: block;
+        margin-left: 30px;
+    }
+}
+.nav-active{
+    transform: translateX(0%);
 }
