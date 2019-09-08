@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "4004";
 $dbname = "ExpendiShare";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
