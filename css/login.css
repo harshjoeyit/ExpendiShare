@@ -3,6 +3,12 @@ a.forgot{
     font-size: 14px;
     margin: 15px 0px;
 }
+#eye{
+    float: right;
+    /* top: -40px;
+    left: 115px;
+    width: 30px; */
+}
 /*############ Login Page Layout Designning ########### */
 section{
     margin-top: 50px;
