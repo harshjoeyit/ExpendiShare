@@ -17,7 +17,7 @@ li, a, button{
     text-decoration: none;
     
 }
-h1,h2{
+h1{
     font-weight: bold;
     margin:0;
     color: #FFEDDF;
@@ -32,6 +32,25 @@ header{
     overflow: hidden;
     background: #011627;
     min-height: 9vh;
+}
+h2{
+    font-weight: bold;
+    margin:0;
+    color: #011627;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+}
+p{
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+    font-family: sans-serif;
+}
+span{
+    font-size: 20px;
+    margin: 10px 0px;
 }
 .logo{
     cursor: pointer;
