@@ -1,4 +1,8 @@
-
+a.forgot{
+    color: #DB2955;
+    font-size: 14px;
+    margin: 15px 0px;
+}
 /*############ Login Page Layout Designning ########### */
 section{
     margin-top: 50px;
