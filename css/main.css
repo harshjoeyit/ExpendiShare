@@ -6,7 +6,7 @@
     padding: 0;
 }
 body{
-    background: #011627;
+    background-color: #011627;
 }
 
 li, a, button{
@@ -28,10 +28,10 @@ header{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
     overflow: hidden;
     background: #011627;
-    min-height: 9vh;
+    height: 100px;
 }
 h2{
     font-weight: bold;
@@ -126,8 +126,8 @@ nav ul.nav-links li a.active{
         right:0px;
         display: flex;
         flex-direction: column;
-        top: 9vh;
-        height: 92vh;
+        top: 90px;
+        height: 100%;
         background: #011627;
         justify-content: space-around;
         align-items: center;
