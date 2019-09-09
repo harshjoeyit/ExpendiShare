@@ -1,13 +1,14 @@
-.main-content{
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin: auto;
+section{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    margin-left: 250px;
     background-color: #FFEDDF;
     opacity: 1;
     border-radius: 10px;
     padding: 15px;
     height: 860px;
+     margin-top: 0;
 }
 .container{
     display: block;
@@ -16,13 +17,57 @@
     width: 100%;
     opacity:1;
 }
-/* aside{
-    display: inline-flex;
-    flex-direction: row;
+aside{
+    display: inline-block;
+    position: absolute;
     width: 20%;
+    margin-left: 10px;
     background-color: #E3E4DB;
-    opacity: 0.5;
+    opacity: 1;
     border-radius: 10px;
     padding: 15px;
     height: 860px;
-} */
+    margin-top: 0;
+}
+form{
+    margin-top: 20px;
+    color: #FFEDDF;
+    text-align: center;
+}
+form input{
+    border-radius: 10px;
+    font-weight: 500;
+    color: #DB2955;
+    font-size: 16px;
+    outline: none;
+    background: #FFEDDF;
+    border: 0.5px solid #011627;
+    padding: 12px 10px;
+    margin: 10px 0;
+    width: 100%;
+    overflow: hidden;
+}
+.button{
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid #E3E4DB;
+    background: #DB2955;
+    color: #FFEDDF;
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.button:active{
+    transform: scale(0.9);
+}
+h2{
+    padding: 10px;
+}
+h3{
+    color: #FFEDDF;
+    text-transform: uppercase;
+    margin: auto;
+}
