@@ -71,3 +71,8 @@ h3{
     text-transform: uppercase;
     margin: auto;
 }
+.user_logo{
+    background: #FFEDDF;
+    border-radius: 50%;
+    align-items: center;
+}
