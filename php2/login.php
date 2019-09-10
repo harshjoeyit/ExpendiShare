@@ -15,7 +15,7 @@
         if($total == 1)
         {
             $_SESSION['email'] = $email;
-            header('location: ../html/dashboard.html');
+            header('location: ../php2/dashboard.php');
         }
         else
         {
