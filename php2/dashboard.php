@@ -16,8 +16,6 @@ if( $user_email == true )
     $name = $result['name'];
     $profile_pic = $result['profile_pic'];
 
-    // echo "Welcome ".$result['name']." <br><br>";
-    // echo "email ".$result['email']." <br><br>"
 }
 else
 {   // if the user has not logged in ad tries to access the home.php
@@ -25,6 +23,9 @@ else
 }
 
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -42,11 +43,17 @@ else
     <header>
         <h1 class="logo">ExpendiShare</h1>
         <!-- seperate the styles  -->
-        <img style="border-radius:35px;" src =  '<?php echo $profile_pic; ?>' alt = '<?php echo $name." profile picture"; ?>'  
-        height = '70' , width = '70'/>
+        
+        <div class="crop">
+            <img style="border-radius:35px;" src =  '<?php echo $profile_pic; ?>' alt = '<?php echo $name."'s profile picture"; ?>'  />
+        </div>
+        <form action="../php2/upload_profile.php" method="post" enctype= "multipart/form-data">
+            <input class ="image" type="file" name= "uploadfile" value = "" />
+            <input class ="image" type="submit" name="submit" value="Upload" />
+        </form>
+
         <!-- bring the username and the profile picture closer -->
         <h3><?php echo $name; ?></h3>
-        <!-- upload profile picture form remaining  -->
         <nav>
             <ul class="nav-links">
                 <li ><a class="active" href="../index.html">Home</a></li>
