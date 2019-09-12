@@ -43,16 +43,10 @@ else
     <header>
         <h1 class="logo">ExpendiShare</h1>
         <!-- seperate the styles  -->
-        
         <div class="crop">
             <img style="border-radius:35px;" src =  '<?php echo $profile_pic; ?>' alt = '<?php echo $name."'s profile picture"; ?>'  />
         </div>
-        <!-- condition needs to be added in js and php that the user cannot uplaod if the file is not choosen -->
-        <form action="../php2/upload_profile.php" method="post" enctype= "multipart/form-data">
-            <input class ="image" type="file" name= "uploadfile" value = "" />
-            <input class ="image" type="submit" name="submit" value="Upload" />
-        </form>
-
+        <a href="account.php">My Account</a>
         <!-- bring the username and the profile picture closer -->
         <h3><?php echo $name; ?></h3>
         <nav>
