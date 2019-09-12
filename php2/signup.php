@@ -6,18 +6,20 @@ if($_POST['submit'])
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password']; 
+    $location = '../user_profile_pics/default.png';
 
     if($name != "" && $email != "" && $password != "")
     {
         // validate the password here
 
-        $find_query = "SELECT * FROM user_info WHERE email = '$email' " ;
+        $find_query = "SELECT * FROM users_info WHERE email = '$email' " ;
         $find = mysqli_query($conn, $find_query);
         $total = mysqli_num_rows($find);
         
         if($total == 0)
         {
-            $insert_query = "INSERT INTO user_info VALUES ('$name','$email','$password')" ;
+            // while using insert function if we do not specify the columns we are inserting in then we have to specify value for each column 
+            $insert_query = "INSERT INTO users_info VALUES ('$name','$email','$password', '$location')" ;
             $data = mysqli_query($conn, $insert_query);
 
             if($data)
