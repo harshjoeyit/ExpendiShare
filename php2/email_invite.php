@@ -26,7 +26,7 @@
     session_start();
 
     $user_email = $_SESSION['email'];
-    $query = "SELECT * FROM user_info WHERE email='$user_email' "; 
+    $query = "SELECT * FROM users_info WHERE email='$user_email' "; 
     $data = mysqli_query($conn, $query);
     $result = mysqli_fetch_assoc($data);
     $name = $result['name'];

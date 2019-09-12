@@ -12,7 +12,7 @@ if( $user_email == true )
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $location = "../user_profile_pics/".$filename;
 
-    $update_query = "UPDATE user_info SET profile_pic = '$location' WHERE email = '$user_email' ";
+    $update_query = "UPDATE users_info SET profile_pic = '$location' WHERE email = '$user_email' ";
     $data = mysqli_query($conn, $update_query);
     
     if($data)

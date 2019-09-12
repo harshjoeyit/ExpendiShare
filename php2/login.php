@@ -8,7 +8,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $query = "SELECT * FROM user_info WHERE password = '$password' AND email = '$email' ";
+        $query = "SELECT * FROM users_info WHERE password = '$password' AND email = '$email' ";
         $data = mysqli_query($conn, $query);
         $total = mysqli_num_rows($data);
 
