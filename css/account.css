@@ -1,0 +1,17 @@
+#page
+{
+    width: 940px;
+    margin: auto;
+    background-color: #fff;
+    border: 3px solid rgb(221, 69, 95);
+    margin-top: 40px;
+    padding: 5px;
+    font-family: monospace;
+    font-size: 14px; 
+}
+
+img
+{
+    width: 200px;
+    
+}
