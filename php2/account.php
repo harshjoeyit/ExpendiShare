@@ -67,5 +67,6 @@ else
     
     <script src = "../js/jquery-3.4.1.js"></script>
     <script src="../js/account.js"></script>
+    <script src="./js/nav-mobile.js"></script>
 </body>   
 </html>

@@ -83,6 +83,7 @@ else
     </aside>
     <script src = "../js/jquery-3.4.1.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="./js/nav-mobile.js"></script>
 </body>   
 </html>
 
