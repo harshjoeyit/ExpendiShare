@@ -46,9 +46,9 @@ else
         <div class="crop">
             <img style="border-radius:35px;" src =  '<?php echo $profile_pic; ?>' alt = '<?php echo $name."'s profile picture"; ?>'  />
         </div>
-        <a href="account.php">My Account</a>
+        <a href="account.php"><h3><?php echo $name; ?></h3></a>
         <!-- bring the username and the profile picture closer -->
-        <h3><?php echo $name; ?></h3>
+        
         <nav>
             <ul class="nav-links">
                 <li ><a class="active" href="../index.html">Home</a></li>

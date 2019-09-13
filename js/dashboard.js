@@ -1,4 +1,1 @@
-//$('#msg').hide();                // hiding the send email status 
-
-
-
+//$('#msg').hide();                // hiding the send email status

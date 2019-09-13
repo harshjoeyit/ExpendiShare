@@ -55,7 +55,7 @@
         }
         ?>       
         <!-- redirecting to the dshboard -->
-        <META HTTP-EQUIV="Refresh" CONTENT="0; URL= ../html/dashboard.html" >
+        <META HTTP-EQUIV="Refresh" CONTENT="0; URL= ../php2/dashboard.php" >
         <?php
     
         }

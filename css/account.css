@@ -1,6 +1,6 @@
 #page
 {
-    width: 940px;
+    width: 968px;
     margin: auto;
     background-color: #fff;
     border: 3px solid rgb(221, 69, 95);
@@ -8,10 +8,39 @@
     padding: 5px;
     font-family: monospace;
     font-size: 14px; 
+    border-radius: 10px;
 }
 
 img
 {
     width: 200px;
     
+}
+form input[type="text"]{
+    border-radius: 10px;
+    font-weight: 500;
+    color: #DB2955;
+    font-size: 16px;
+    outline: none;
+    background: #DDDFDF;
+    border: none;
+    padding: 15px 14px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+form input[type="submit"]{
+    outline: none;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid #E3E4DB;
+    background: #DB2955;
+    color: #FFEDDF;
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+form input:active[type="submit"]{
+    transform: scale(0.9);
 }
