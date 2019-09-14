@@ -47,7 +47,9 @@ else
         <a class="cta" href="../php2/logout.php" onclick="return confirm('Are you sure to logout?')"><button>Log Out</button></a>
         <a class="menu">&#9776;</a>
     </header>
-    
+
+    <!-- user profile pic display -->
+
     <div id="page">
         <div id ="pic">
             <img src ='<?php echo $profile_pic; ?>' alt = '<?php echo $name."'s profile picture"; ?>'  />
@@ -55,14 +57,38 @@ else
                 <input class ="image" type="file" name= "uploadfile" value = "" />
                 <input class ="image" type="submit" name="submit" value="Upload" />
             </form>
-            <h2><?php echo $name; ?></h2>
-            <form action="update.php" method="POST">
-                <button>Edit</button>
-                <input type="text" name="name" placeholder="Name">
-                <button>Cancel</button>
-                <input type="submit" name = "submit" value = "Change name">
-            </form>
         </div>
+            
+
+<!-- update user details form for ----   name and email-->
+
+            <form action="update.php" method="POST">
+                <!-- name change  -->
+                <h2><?php echo $name; ?></h2>
+                <button id = "editname">Edit</button>
+                <div id = "nameform">
+                    <input type="text" name="name" placeholder="New Name">
+                    <button id = "canceleditname">Cancel</button>
+                </div>
+                <!-- email change -->
+                <p><?php echo $user_email; ?></p>
+                <button id = "editemail">Edit</button>
+                <div id = "emailform">
+                    <input type="email" name="email" placeholder="New Email">
+                    <button id = "canceleditemail">Cancel</button>
+                </div>
+                <!-- seperate styles -->
+                <label style="display: block; margin: 10px;"   for="password">Update Password</label>
+                <button id = "editpassword">Edit</button>
+                <div id = "passwordform">
+                    <input type="password" name="oldpassword" placeholder="Old Password">
+                    <input type="password" name="newpassword" placeholder="New Password">
+                    <button id = "canceleditpassword">Cancel</button>
+                </div>
+                <!-- seperate styles -->
+                <input style="display: block; float:right; margin: 10px;"type="submit" name = "Update" value = "Update">
+            </form>
+
     </div>
     
     <script src = "../js/jquery-3.4.1.js"></script>
