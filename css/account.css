@@ -16,7 +16,7 @@ img
     width: 200px;
     
 }
-form input[type="text"]{
+form input[type="text"], input[type="email"], input[type="password"]{
     border-radius: 10px;
     font-weight: 500;
     color: #DB2955;
