@@ -2,6 +2,8 @@
 
 session_start();
 include('connect.php');
+error_reporting(0);
+
 $user_email = $_SESSION['email'];
 
 if( $user_email == true )
@@ -48,8 +50,11 @@ else
         <a class="menu">&#9776;</a>
     </header>
 
-    <!-- user profile pic display -->
+    <!-- for update message -->
+    <!-- seperate styles design message box-->
+    <div id = "message" style = "color: white; background: black; text-align: center; width: 500px; margin: auto;"><?php echo $_GET['msg'] ?></div>
 
+    <!-- user profile pic display -->
     <div id="page">
         <div id ="pic">
             <img src ='<?php echo $profile_pic; ?>' alt = '<?php echo $name."'s profile picture"; ?>'  />
