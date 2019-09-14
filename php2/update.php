@@ -14,15 +14,11 @@ if($_POST['Update'])
         $data = mysqli_query($conn, $update_query);
 
         if($data)
-            header('location: account.php');
+            header('location: account.php?msg=details-updated');
     
         else    
-        {
-            ?>
-            <script> window.alert('details not updated') </script>
-            <?php
-            //header('location: account.php');
-        }
+            header('location: account.php?msg=could-not-update');   
+        
 
     }  
 
@@ -36,27 +32,45 @@ if($_POST['Update'])
         {
             // session email must be changed since it is the same user but the email for session has changed 
             $_SESSION['email'] = $email;        
-            header('location: account.php');
+            header('location: account.php?msg=details-updated');
         }
         else    
         {
-            ?>
-            <script> window.alert('details not updated') </script>
-            <?php
-            header('location: account.php');
+            header('location: account.php?msg=could-not-update');
         }
     }  
-    
-    // change password functionality after verifying the old password 
 
-    if( $_POST['email'] == "" && $_POST['name'] == "" )
+    if($_POST['newpassword'] != "" && $_POST['oldpassword'] != "" )
     {
-        ?>
-        <script> window.alert('Nothing to Update') </script>
-        <!-- redirect here using META -->
-        <?php
-    }
+        
+        $query = "SELECT * FROM users_info WHERE email = '$user_email' ";
+        $data = mysqli_query($conn, $query);
+        $result = mysqli_fetch_assoc($data);
+
+        $current_pass = $result['password'];
+        $new_pass = $_POST['newpassword'];
+        $old_pass = $_POST['oldpassword'];
+
+        if( $old_pass == $current_pass )
+        {
+            $update_query = "UPDATE users_info SET password = '$new_pass' WHERE email = '$user_email' ";
+            $data2 = mysqli_query($conn, $update_query);
     
+            if($data)
+                header('location: account.php?msg=details-updated');
+                
+            else 
+                header('location: account.php?msg=could-not-update');
+        }
+        else    
+            header('location: account.php?msg=password-is-not-correct');
+    }  
+
+    if( $_POST['email'] == "" && $_POST['name'] == "" && ($_POST['newpassword'] == "" || $_POST['oldpassword'] == "") )
+    {
+        header('location: account.php?msg=nothing-to-update');    
+    }
+
 }
 
 ?>
