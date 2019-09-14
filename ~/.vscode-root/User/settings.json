@@ -1,0 +1,5 @@
+{
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.iconTheme": "vscode-icons",
+    "files.autoSave": "afterDelay"
+}

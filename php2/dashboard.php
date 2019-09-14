@@ -68,14 +68,14 @@ else
     <aside>
         <h2>Search Friend</h2>
         <hr>
-        <form>
+        <form action = "../php2/search.php" method = "post">
             <input type="email" name="email" placeholder="Friend's Email*" required>
             <input class="button" type="submit" name = "search" value="search">
         </form>
         <h2>Invite Friend</h2>
         <hr>
         
-        <form action = "../php2/email_invite.php" method = "post" ">
+        <form action = "../php2/email_invite.php" method = "post" >
             <input type="email" name="email" placeholder="Friend's Email*" required>
             <input class="button" type="submit" name = "send" value="send">
             <!-- <div id = "msg">send mail status</div> -->

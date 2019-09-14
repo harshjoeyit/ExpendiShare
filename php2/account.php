@@ -86,7 +86,9 @@ else
                     <button id = "canceleditpassword">Cancel</button>
                 </div>
                 <!-- seperate styles -->
-                <input style="display: block; float:right; margin: 10px;"type="submit" name = "Update" value = "Update">
+                <div>
+                    <input style="display: block; float:right; margin: 10px;"type="submit" name = "Update" value = "Update">
+                </div>
             </form>
 
     </div>

@@ -2,7 +2,7 @@
 {
     width: 968px;
     margin: auto;
-    background-color: #fff;
+    background-color: #E3E4DB;
     border: 3px solid rgb(221, 69, 95);
     margin-top: 40px;
     padding: 5px;
@@ -43,4 +43,13 @@ form input[type="submit"]{
 }
 form input:active[type="submit"]{
     transform: scale(0.9);
+}
+label{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: #E3E4DB;
+    text-decoration: none;
+    border: none;
+    margin: 0;
 }
