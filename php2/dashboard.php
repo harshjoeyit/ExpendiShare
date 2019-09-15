@@ -80,6 +80,18 @@ else
             <input class="button" type="submit" name = "send" value="send">
             <!-- <div id = "msg">send mail status</div> -->
         </form>
+        <h2>Create Group</h2>
+        <hr>
+        <form action = "../php2/group.php" method = "post">
+            <input type="email" name="email" placeholder="Friend's Email*" required>
+            <input class="button" type="submit" name = "search" value="create">
+        </form>
+        <h2>Add Member</h2>
+        <hr>
+        <form action = "../php2/group.php" method = "post">
+            <input type="email" name="email" placeholder="Friend's Email*" required>
+            <input class="button" type="submit" name = "search" value="Add">
+        </form>
     </aside>
     <script src = "../js/jquery-3.4.1.js"></script>
     <script src="../js/dashboard.js"></script>
