@@ -19,7 +19,7 @@ if($_POST['submit'])
         if($total == 0)
         {
             // while using insert function if we do not specify the columns we are inserting in then we have to specify value for each column 
-            $insert_query = "INSERT INTO users_info VALUES ('', '$name','$email','$password', '$location')" ;
+            $insert_query = "INSERT INTO users_info VALUES ('0', '$name','$email','$password', '$location')" ;
             $data = mysqli_query($conn, $insert_query);
 
             if($data)
