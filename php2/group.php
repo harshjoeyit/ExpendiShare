@@ -10,7 +10,7 @@
     echo "$result";
     if($_POST['create'])
     {
-        $grpname= $_POST['name'];
+        $grpname= mysqli_real_escape_string($conn,$_POST['name']);
 
         if($grpname != "")
         {

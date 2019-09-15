@@ -9,7 +9,7 @@ if($_POST['Update'])
     // validation of the details is required here 
     if($_POST['name'] != "")
     {
-        $name = $_POST['name'];
+        $name = mysqli_real_escape_string($conn,$_POST['name']);
         $update_query = "UPDATE users_info SET name = '$name' WHERE email = '$user_email' ";
         $data = mysqli_query($conn, $update_query);
 
@@ -24,7 +24,7 @@ if($_POST['Update'])
 
     if($_POST['email'] != "")
     {
-        $email = $_POST['email'];
+        $email = mysqli_real_escape_string($conn,$_POST['email']);
         $update_query = "UPDATE users_info SET email = '$email' WHERE email = '$user_email' ";
         $data = mysqli_query($conn, $update_query);
 
@@ -48,8 +48,8 @@ if($_POST['Update'])
         $result = mysqli_fetch_assoc($data);
 
         $current_pass = $result['password'];
-        $new_pass = $_POST['newpassword'];
-        $old_pass = $_POST['oldpassword'];
+        $new_pass = mysqli_real_escape_string($conn,$_POST['newpassword']);
+        $old_pass = mysqli_real_escape_string($conn,$_POST['oldpassword']);
 
         if( $old_pass == $current_pass )
         {

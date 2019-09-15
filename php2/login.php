@@ -5,8 +5,8 @@
 
     if($_POST['submit'])
     {
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+        $email = mysqli_real_escape_string($conn,$_POST['email']);
+        $password = mysqli_real_escape_string($conn,$_POST['password']);
 
         $query = "SELECT * FROM users_info WHERE password = '$password' AND email = '$email' ";
         $data = mysqli_query($conn, $query);

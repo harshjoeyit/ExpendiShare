@@ -37,7 +37,7 @@
 
     if(isset($_POST['send']))
     {
-        $e = $_POST['email'];
+        $e = mysqli_real_escape_string($conn,$_POST['email']);
         $s = $subject;
         $m = $message;
 

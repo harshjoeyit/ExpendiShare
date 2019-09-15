@@ -3,9 +3,9 @@
 
 if($_POST['submit'])
 {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password']; 
+    $name = mysqli_real_escape_string($conn,$_POST['name']);
+    $email = mysqli_real_escape_string($conn,$_POST['email']);
+    $password = mysqli_real_escape_string($conn,$_POST['password']); 
     $location = '../user_profile_pics/default.png';
 
     if($name != "" && $email != "" && $password != "")
