@@ -39,6 +39,8 @@ td, th
 
 
 
+
+
 <?php
 
 session_start();
@@ -195,6 +197,42 @@ function checkdelete()
 
 
 
+<!-- adding date and time to the table  -->
+
+<?php
+
+// date time 
+$raw = "Sun Mar 23 06:39:16 +0000 2008";
+$xplod = explode(' ', $raw);
+print_r($xplod);
+
+$string = "$xplod[5]-$xplod[1]-$xplod[2] $xplod[3]";
+echo "<br />".$string;
+
+$date = date("Y-m-d H:i:s", strtotime($string));
+echo "<br>".$date;
+
+$q = "UPDATE expense SET date = '$date' WHERE user_id = '$user_id' ";
+if(mysqli_query($conn, $q))
+{
+    echo "<br>date added ";
+}
+else
+{
+    echo "<br>date not added ";
+}
 
 
+$q2 = "SELECT date FROM expense WHERE user_id = '$user_id' ";
+$d2 = mysqli_query($conn, $q2);
+$ur = mysqli_fetch_assoc($d2);
+$d = $ur['date'];
 
+
+$day = $d[8].$d[9];
+$month = $d[5].$d[6];
+echo "<br> day: $day";
+echo "<br> month: $month ";
+
+
+?>
