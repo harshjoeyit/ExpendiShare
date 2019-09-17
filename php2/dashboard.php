@@ -66,7 +66,7 @@ else
         </div>
         <h2>Split</h2>
         <hr>
-        <form action = "../php2/test.php" method = "post">
+        <form action = "../php2/split.php" method = "post">
             <input type="text" name="category" placeholder= "Category" required>
             <input type="number" name="money" placeholder="Enter the amount" required>
             <input class="button" type="submit" name = "split" value="split">
