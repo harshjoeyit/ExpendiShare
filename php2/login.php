@@ -3,7 +3,7 @@
     include("connect.php");
     error_reporting(0);
 
-    if($_POST['submit'])
+    if(isset($_POST['submit']))
     {
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $password = mysqli_real_escape_string($conn,$_POST['password']);
