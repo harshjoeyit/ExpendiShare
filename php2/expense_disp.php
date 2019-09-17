@@ -202,18 +202,11 @@ function checkdelete()
 <?php
 
 // date time 
-$raw = "Sun Mar 23 06:39:16 +0000 2008";
-$xplod = explode(' ', $raw);
-print_r($xplod);
+$today_date = date('Y-m-d H:i:s');
+echo "<br> date today : ".$today_date."<br>";
 
-$string = "$xplod[5]-$xplod[1]-$xplod[2] $xplod[3]";
-echo "<br />".$string;
-
-$date = date("Y-m-d H:i:s", strtotime($string));
-echo "<br>".$date;
-
-$q = "UPDATE expense SET date = '$date' WHERE user_id = '$user_id' ";
-if(mysqli_query($conn, $q))
+$date_query = "UPDATE expense SET date = '$today_date' WHERE user_id = '$user_id' ";
+if(mysqli_query($conn, $date_query))
 {
     echo "<br>date added ";
 }
@@ -222,6 +215,8 @@ else
     echo "<br>date not added ";
 }
 
+
+// for fetching and displaying from the table 
 
 $q2 = "SELECT date FROM expense WHERE user_id = '$user_id' ";
 $d2 = mysqli_query($conn, $q2);
