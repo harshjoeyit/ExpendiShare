@@ -159,7 +159,7 @@ else
             <h2>Search Friend</h2>
             <hr>
             <form action = "../php2/search.php" method = "post">
-                <input type="email" name="email" placeholder="Friend's Email*" required>
+                <input type="text" name="name" placeholder="Friend's Name*" required>
                 <button type="submit" name="search">Search</button>
             </form>
             

@@ -1,21 +1,19 @@
 <?php
-include("connect.php");
+    include('connect.php');
+    session_start();
+    error_reporting(0);
 
-if($_POST['search'])
-{
-    
-    $query = "SELECT * FROM users_info";
-    $data=mysqli_query($conn, $query);
-    $num_rows = mysqli_num_rows($query);
-    
-    if($num_rows > 0)
-    {
-        header('location: account.php');
-    }
-    else
-    {
-        header('location: ../index.html');
-    }
-}
+    $user_email = $_SESSION['email'];
 
+
+    if(isset($_POST['search'])){
+
+        $name = mysqli_real_escape_string($conn, $_POST['name']);
+
+        $query = "SELECT * FROM users_info WHERE name = '$name'";
+        $data = mysqli_query($conn, $query);
+        $result = mysqli_fetch_assoc($data);
+
+        print_r($result);
+    }
 ?>
