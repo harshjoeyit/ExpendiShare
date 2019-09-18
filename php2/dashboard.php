@@ -63,6 +63,10 @@ else
     <!--Left Contain-->
     
     <aside class="left-container">
+        <div class='tab'>
+            <button class='tablinks' onclick='openCity(event, dashboard)'><h3>Dashboard<h3></button>
+        </div>
+
         <div><h2>Friends</h2></div>
         <hr>
         <?php
@@ -214,7 +218,7 @@ else
         <script src = "../js/jquery-3.4.1.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="./js/nav-mobile.js"></script>
-        <script>function openCity(evt, cityName) {
+        <script>function openCity(evt, friendname) {
             // Declare all variables
             var i, tabcontent, tablinks;
             
@@ -231,7 +235,7 @@ else
             }
             
             // Show the current tab, and add an "active" class to the link that opened the tab
-            document.getElementById(cityName).style.display = "block";
+            document.getElementById(friendname).style.display = "block";
             evt.currentTarget.className += " active";
         }</script>
     </body>   
