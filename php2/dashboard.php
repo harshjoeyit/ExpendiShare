@@ -123,7 +123,6 @@ else
 
                 <h2>Split</h2>
                 <hr>
-                <div class="class"></div>
                 <form action = "../php2/split.php" method = "post">
                     <input type="text" name="category" placeholder= "Category" required>
                     <input type="number" name="money" placeholder="Enter the amount" required>
@@ -148,18 +147,7 @@ else
                      }
 
                 ?>
-                
-                <!-- <div id="Groups" class="tabcontent">
-                    <h3>Groups</h3>
-                    <p>Groups is the capital of France.</p> 
-                </div>
-                
-                <div id="$friend_name" class="tabcontent">
-                    <h3>$friend_name</h3>
-                    <p>$friend_name is the capital of Japan.</p>
-                </div> -->
-
-            </div>
+        </div>
             
             
         </section>
@@ -193,15 +181,23 @@ else
             <hr>
             <form action = "../php2/group.php" method = "post">
                 <input type="text" name="name" placeholder="Group's Name" required>
-                <input type="email" name="email" placeholder="member email" required>
+                <input type="email" name="email" placeholder="Member's email" required>
                 <button type="submit" name="create">Create</button>
+            </form>
+
+            <h2>Add Member to Group</h2>
+            <hr>
+            <form action = "../php2/update_grp.php" method = "post">
+                <input type="text" name="name" placeholder="Group's Name" required>
+                <input type="email" name="email" placeholder="Member's email" required>
+                <button type="submit" name="add_mem">Add</button>
             </form>
             
             
             <!--Add Friends-->
             
             
-            <h2>Add Member</h2>
+            <h2>Add Friend</h2>
             <hr>
             <form action = "../php2/addfriends.php" method = "post">
                 <input type="email" name="email" placeholder="Friend's Email*" required>
