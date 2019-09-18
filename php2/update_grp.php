@@ -29,52 +29,73 @@
         $grp_name = mysqli_real_escape_string($conn, $_POST['name']);
         $member_email = mysqli_real_escape_string($conn, $_POST['email']);
 
-        $search_query = "SELECT * FROM users_info WHERE email = '$member_email'";
-        $search_data = mysqli_query($conn, $search_query);
-        $search_result = mysqli_fetch_assoc($search_data);
-        
-        if($search_result){
-            
-            $member_id = $search_result['user_id'];
+        $search_grp = "SELECT grpname FROM grps_info WHERE user_id = '$user_id'";
+        $search_grp_data = mysqli_query($conn, $search_grp);
+        $search_grp_array = mysqli_fetch_assoc($search_grp_data);
 
+        $grp_count = 0;
 
-            $count = 0;
+        foreach($search_grp_array as $y => $y_value){
 
-            foreach($grp_members as $x => $x_value){
-
-                if($x_value == $member_id){
-                    $count++;
-                }
+            if($y_value == $grp_name){
+                $grp_count++;
             }
-            
-            if(!$count){
-
-                //Updating Group Members
-
-                $grp_members = array_pad($grp_members, count($grp_members)+1, $member_id);
-
-                //Serializing the group member's array
-
-                $grp = serialize($grp_members);
-
-                //Updating the grps_info database
-
-                $update_query = "UPDATE grps_info SET members_id = '$grp'";
-                $update_data = mysqli_query($conn, $update_query);
-
-                if($update_data){
-                    echo "Updated";
-                }
-                else{
-                    echo "Not Updated";
-                }
-            }
-            
-
         }
+
+        if($grp_count){
+
+            $search_query = "SELECT * FROM users_info WHERE email = '$member_email'";
+            $search_data = mysqli_query($conn, $search_query);
+            $search_result = mysqli_fetch_assoc($search_data);
+            
+            if($search_result){
+                
+                $member_id = $search_result['user_id'];
+    
+    
+                $count = 0;
+    
+                foreach($grp_members as $x => $x_value){
+    
+                    if($x_value == $member_id){
+                        $count++;
+                    }
+                }
+                
+                if(!$count){
+    
+                    //Updating Group Members
+    
+                    $grp_members = array_pad($grp_members, count($grp_members)+1, $member_id);
+    
+                    //Serializing the group member's array
+    
+                    $grp = serialize($grp_members);
+    
+                    //Updating the grps_info database
+    
+                    $update_query = "UPDATE grps_info SET members_id = '$grp'";
+                    $update_data = mysqli_query($conn, $update_query);
+    
+                    if($update_data){
+                        echo "Updated";
+                    }
+                    else{
+                        echo "Not Updated";
+                    }
+                }
+                
+    
+            }
+            else{
+                echo "Not Found";
+            }
+        }
+
         else{
-            echo "Not Found";
+            echo "Group not Found";
         }
+
     }
 
 
