@@ -218,16 +218,23 @@ else
 
 // for fetching and displaying from the table 
 
-$q2 = "SELECT date FROM expense WHERE user_id = '$user_id' ";
+// displaying the latest entry first 
+$q2 = "SELECT date FROM expense ORDER BY date DESC WHERE user_id = '$user_id' ";
 $d2 = mysqli_query($conn, $q2);
-$ur = mysqli_fetch_assoc($d2);
-$d = $ur['date'];
+//$ur = mysqli_fetch_assoc($d2);
+
+while( $ur = mysqli_fetch_assoc($d2) )
+{
+    $d = $ur['date'];
+    echo "$d<br>";
+}
+// $d = $ur['date'];
 
 
-$day = $d[8].$d[9];
-$month = $d[5].$d[6];
-echo "<br> day: $day";
-echo "<br> month: $month ";
+// $day = $d[8].$d[9];
+// $month = $d[5].$d[6];
+// echo "<br> day: $day";
+// echo "<br> month: $month ";
 
 
 ?>
