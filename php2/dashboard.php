@@ -63,21 +63,47 @@ else
     <!--Left Contain-->
     
     <aside class="left-container">
-        
-        <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'Expense')"><h3>Expense</h3></button>
-            <hr>
-            <button class="tablinks" onclick="openCity(event, 'Friends')"><h3>Friends</h3></button>
-            <hr>
-            <div class="chip">
-                <img src="../user_profile_pics/default.png" alt="Person" width="96" height="96">
-                John Doe
-                <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
-            </div>
+        <div><h2>Friends</h2></div>
+        <hr>
+        <?php
+            
+            $user_id = $result['user_id'];
 
-            <button class="tablinks" onclick="openCity(event, 'Groups')"><h3>Groups</h3></button>
-            <hr>
-        </div>
+            $search_query = "SELECT * FROM friends_info WHERE user_id = '$user_id'";
+            $search_data = mysqli_query($conn, $search_query);
+            $search_result = mysqli_fetch_assoc($search_data);
+            $friends_id = $search_result['friends_id'];
+            $friends_id_array = unserialize($friends_id);
+            
+            foreach($friends_id_array as $x => $x_value){
+                $find_name_query = "SELECT * FROM users_info WHERE user_id = '$x_value'";
+                $find_name_data = mysqli_query($conn, $find_name_query);
+                $find_name_result = mysqli_fetch_assoc($find_name_data);
+
+                $friend_name = $find_name_result['name'];
+                
+
+                //Tab Layout for Friends Display
+
+                echo "<div class='tab'>
+                        <button class='tablinks' onclick='openCity(event, $friend_name)'><h3>$friend_name<h3></button>
+                        </div>";
+            }
+        ?>
+        <div><h2>Groups</h2></div>
+        <hr>
+        <?php
+            $search_query = "SELECT * FROM grps_info WHERE user_id = '$user_id'";
+            $search_data = mysqli_query($conn, $search_query);
+            $search_result = mysqli_fetch_assoc($search_data);
+
+            $grp_name = $search_result['grpname'];
+            echo "<div class='tab'>
+                        <button class='tablinks' onclick='openCity(event, $friend_name)'><h3>$grp_name<h3></button>
+                        </div>";
+
+        ?>
+        
     </aside>
     
     <!--Main Contain-->
@@ -89,23 +115,12 @@ else
                 
                 <span>Welcome</span>
                 <div class="expense_container">
-                    <a class="add_expense">Add Expense</a>
-                    <a class="settle_up">Settle Up</a>
-                    
+                    <button><a class="add_expense">Add Expense</a></button>
+                    <button><a class="settle_up">Settle Up</a></button>
                 </div>
+
             </div>
-            
-            <div id="expenses">
-                <div id="expense_list">
-                    <div class="expense">
-                        <div class="summary">
-                            <div class= "expense"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <hr>
-                
+
                 <h2>Split</h2>
                 <hr>
                 <div class="class"></div>
@@ -114,20 +129,36 @@ else
                     <input type="number" name="money" placeholder="Enter the amount" required>
                     <button type="submit" name="split">Split</button>
                 </form>
-                <div id="Friends" class="tabcontent">
-                    <h3>Friends</h3>
-                    <p>Friends is the capital city of England.</p>
-                </div>
+                <?php 
+
+                     foreach($friends_id_array as $x => $x_value){
+
+
+                        $find_name_query = "SELECT * FROM users_info WHERE user_id = '$x_value'";
+                        $find_name_data = mysqli_query($conn, $find_name_query);
+                        $find_name_result = mysqli_fetch_assoc($find_name_data);
+                        
+                        $friend_name = $find_name_result['name'];
+
+                        echo "<div class='tabcontent' id='$friend_name'>
+                            <h2>$friend_name</h2>
+                            <p>Friends is the capital city of England.</p>
+                        </div>";
+                        
+                     }
+
+                ?>
                 
-                <div id="Groups" class="tabcontent">
+                <!-- <div id="Groups" class="tabcontent">
                     <h3>Groups</h3>
                     <p>Groups is the capital of France.</p> 
                 </div>
                 
-                <div id="Expense" class="tabcontent">
-                    <h3>Expense</h3>
-                    <p>Expense is the capital of Japan.</p>
-                </div>
+                <div id="$friend_name" class="tabcontent">
+                    <h3>$friend_name</h3>
+                    <p>$friend_name is the capital of Japan.</p>
+                </div> -->
+
             </div>
             
             
@@ -209,8 +240,3 @@ else
         }</script>
     </body>   
     </html>
-
-
-
-
-

@@ -7,23 +7,49 @@
     $find_query= "SELECT user_id FROM users_info WHERE email= '$user_email'";
     $find = mysqli_query($conn, $find_query);
     $result = mysqli_fetch_assoc($find);
-    echo "$result";
-    if($_POST['create'])
+    print_r($result);
+    $user_id = $result['user_id'];
+
+    if(isset($_POST['create']))
     {
         $grpname= mysqli_real_escape_string($conn,$_POST['name']);
 
         if($grpname != "")
         {
-            $insert_query= "INSERT INTO grps_info VALUES ('1', '0','$grpname', 'Creted')";
-            $data = mysqli_query($conn, $insert_query);
-            if($data)
-            {
-                echo "Created";
+            $member_email = mysqli_real_escape_string($conn, $_POST['email']);
+
+
+            //Searching member in users_info table
+
+            $search_query = "SELECT user_id FROM users_info WHERE email= '$member_email'";
+            $search_data = mysqli_query($conn, $search_query);
+            $search_result = mysqli_fetch_assoc($search_data);
+
+            if($search_result==0){
+                ?> <script>alert("user not found");</script><!--Meta Redirect --><?php
             }
+            
             else{
-                echo "not";
-                echo $grpname;
+                $member_id = $search_result['user_id'];
+                $members_array = array($member_id);
+
+                //Serializing the array
+
+                $member_serialize = serialize($members_array);
+                
+                $insert_query= "INSERT INTO grps_info VALUES ('$user_id', '0','$grpname', '$member_serialize')";
+                $data = mysqli_query($conn, $insert_query);
+                if($data)
+                {
+                    echo "Created";
+                }
+                else{
+                    echo "not Created";
+                }
+
             }
+
+
         }
     }
 

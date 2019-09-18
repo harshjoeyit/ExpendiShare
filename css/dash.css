@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
+
+
 section{
     display: inline-flex;
     flex-direction: column;
@@ -74,9 +77,8 @@ h2{
     padding: 10px;
 }
 h3{
-    text-transform: uppercase;
-    margin: auto;
-    font-size: 20px;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
 }
 .user_logo{
     background: #FFEDDF;
@@ -113,7 +115,6 @@ h3{
 .tab {
     float: left;
     width: 100%;
-    height: 100%;
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -121,7 +122,8 @@ h3{
     display: block;
     background-color: inherit;
     color: #011627;
-    padding: 22px 16px;
+    padding: 5px 5px;
+    font-size: 10px;
     width: 100%;
     border: none;
     outline: none;
