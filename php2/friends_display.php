@@ -17,8 +17,8 @@ $user_result = mysqli_fetch_assoc($user_data);
 $user_name = $user_result['name'];
 $user_id = $user_result['user_id'];             // user_id
 
-// echo $user_email."<br>".$user_id;
-// echo "<br>".$user_name;
+echo $user_email."<br>".$user_id;
+echo "<br>".$user_name;
 
 
 
@@ -49,11 +49,12 @@ foreach($friends_id_array as $x => $x_value)
 
     $friendname = $find_friend_result['name'];              // friend name
 
-    // echo "$friend_id"."$friendname";
-    // echo "<br>";
+    echo "<br>";
+    echo "$friend_id<br>"."$friendname";
+    echo "<br>";
 
     // query for expenses made by the user  
-    $expense_query1 = "SELECT * FROM expense WHERE user_id = '$user_id' AND friend_id = '$friend_id' ";
+    $expense_query1 = "SELECT * FROM expense WHERE user_id = '$user_id' AND friend_id = '$friend_id' ORDER BY date DESC";
     $expense_data1 = mysqli_query($conn, $expense_query1);
     $total1 = mysqli_num_rows($expense_data1);
 
@@ -62,7 +63,7 @@ foreach($friends_id_array as $x => $x_value)
 
 
     // query for the expenses made by the other user but user is included
-    $expense_query2 = "SELECT * FROM expense WHERE friend_id = '$user_id' AND user_id = 'friend_id' ";
+    $expense_query2 = "SELECT * FROM expense WHERE friend_id = '$user_id' AND user_id = '$friend_id' ORDER BY date DESC";
     $expense_data2 = mysqli_query($conn, $expense_query2);
     $total2 = mysqli_num_rows($expense_data2);
 
@@ -98,6 +99,7 @@ foreach($friends_id_array as $x => $x_value)
                 <td>".$result['paid']."</td>
                 <td>".$result['owed']."</td>
                 <td>".$result['category']."</td>
+                <td>".$result['date']."</td>
                 </tr>
             </table>";
         }

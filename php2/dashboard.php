@@ -59,20 +59,8 @@ else
         <a class="cta" href="../php2/logout.php" onclick="return confirm('Are you sure to logout?')"><button>Log Out</button></a>
         <a class="menu">&#9776;</a>
     </header>
-    <section class="main-content">
-        <div class="container">
-            <h2>Welcome</h2>
-            <hr>
-        </div>
-        <h2>Split</h2>
-        <hr>
-        <form action = "../php2/split.php" method = "post">
-            <input type="text" name="category" placeholder= "Category" required>
-            <input type="number" name="money" placeholder="Enter the amount" required>
-            <input class="button" type="submit" name = "split" value="split">
-        </form>
-    </section>
-    <aside>
+
+    <aside class="left-container">
         <h2>Search Friend</h2>
         <hr>
         <form action = "../php2/search.php" method = "post">
@@ -101,6 +89,57 @@ else
             <input class="button" type="submit" name = "add" value="Add">
         </form>
     </aside>
+
+
+    <section class="main-content">
+        <div class="container">
+            <h2>Welcome</h2>
+            <hr>
+        </div>
+        <h2>Split</h2>
+        <hr>
+        <form action = "../php2/split.php" method = "post">
+            <input type="text" name="category" placeholder= "Category" required>
+            <input type="number" name="money" placeholder="Enter the amount" required>
+            <input class="button" type="submit" name = "split" value="split">
+        </form>
+    </section>
+
+
+
+    
+    <aside class="right-container">
+        <h2>Search Friend</h2>
+        <hr>
+        <form action = "../php2/search.php" method = "post">
+            <input type="email" name="email" placeholder="Friend's Email*" required>
+            <input class="button" type="submit" name = "search" value="search">
+        </form>
+        <h2>Invite Friend</h2>
+        <hr>
+        
+        <form action = "../php2/email_invite.php" method = "post" >
+            <input type="email" name="email" placeholder="Friend's Email*" required>
+            <input class="button" type="submit" name = "send" value="send">
+            <!-- <div id = "msg">send mail status</div> -->
+        </form>
+        <h2>Create Group</h2>
+        <hr>
+        <form action = "../php2/group.php" method = "post">
+            <input type="text" name="name" placeholder="Group's Name" required>
+            <input type="email" name="email" placeholder="member email" required>
+            <input class="button" type="submit" name = "create" value="create">
+        </form>
+        <h2>Add Member</h2>
+        <hr>
+        <form action = "../php2/addfriends.php" method = "post">
+            <input type="email" name="email" placeholder="Friend's Email*" required>
+            <input class="button" type="submit" name = "add" value="Add">
+        </form>
+    </aside>
+
+
+
     <script src = "../js/jquery-3.4.1.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="./js/nav-mobile.js"></script>
