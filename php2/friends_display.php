@@ -1,3 +1,78 @@
+<style>
+        h2{
+            background: black;
+            color: white;
+        }
+        .expense {
+            border-radius: 10px;
+            border-top: 3px solid rgb(228, 192, 199); 
+            border-bottom: 3px solid rgb(221, 110, 131); 
+            background: pink;
+            width: 800px;
+            height: 100px;
+            padding: 1px 15px 15px 15px;
+        }
+
+        .date,
+        .friendinfo,
+        .payment,
+        .description,
+        .amount1,
+        .amount2 {
+            display: inline;
+            /* font-size: 30px; */
+        }
+
+        .info {
+            background: greenyellow;
+            margin: 30px 10px;
+            font-size: 45px;
+        }
+
+        .date {
+            background: green;
+            margin-right: 25px;
+
+        }
+
+        .friendinfo {
+            background: orange;
+        }
+
+        .payment {
+            background: blueviolet;
+            float: right;
+            font-size: 20px;
+        }
+
+        .paid {
+            background: rgb(204, 61, 61);
+            margin-right: 35px;
+        }
+
+        .owe {
+            background: rgb(32, 139, 122);
+            margin-right: 45px;
+        }
+        img{
+            height: 40px;
+        }
+        .description {
+            background: yellow;
+            width: 300px;
+        }
+
+        .amount1{
+            margin-right: 50px;
+             float: right;   
+        }
+        .amount2{
+            margin-right: 40px;
+            float:right;
+        }
+
+    </style>
+
 <?php
 
 session_start();
@@ -50,7 +125,7 @@ foreach($friends_id_array as $x => $x_value)
     $friendname = $find_friend_result['name'];              // friend name
 
     echo "<br>";
-    echo "$friend_id<br>"."$friendname";
+    echo "<h2>".$friendname."</h2>";
     echo "<br>";
 
     // query for expenses made by the user  
@@ -75,33 +150,27 @@ foreach($friends_id_array as $x => $x_value)
 
     if($total1 != 0)
     {
-
-        ?>
-    
-        <table>
-            <h2>>expenses added by you </h2>
-            <tr>
-                <th>expense id </th>
-                <th>paid amount</th>
-                <th>owed</th>
-                <th>category</th>
-            </tr>
-        </table>
-    
-        <?php
     
         while( $result = mysqli_fetch_assoc($expense_data1) )
         {
 
-            echo "<table>
-            <tr>
-                <td>".$result['expense_id']."</td>
-                <td>".$result['paid']."</td>
-                <td>".$result['owed']."</td>
-                <td>".$result['category']."</td>
-                <td>".$result['date']."</td>
-                </tr>
-            </table>";
+            echo "<div class='expense'>
+                    <div class='payment'>
+                        <span class='paid'>You Paid</span>
+                        <span class='owe'> You lent</span>
+                    </div>
+                    <div class='info'>
+                        <div class='date'>
+                            <span class='display_date'>Date</span>
+                        </div>
+                    <div class='friendinfo'>
+                        <img src='' alt='image'>
+                        <div class='description'>".$result['category']."</div>
+                        <div class='amount1'>".$result['paid']."</div>
+                        <div class='amount2'>".$result['owed']."</div>
+                    </div>
+                    </div>
+                </div>";
         }
     }
 
@@ -112,32 +181,27 @@ foreach($friends_id_array as $x => $x_value)
 
     if($total2 != 0)
     {
-
-        ?>
-    
-        <table>
-            <h2>>expenses added by you </h2>
-            <tr>
-                <th>expense id </th>
-                <th>paid amount</th>
-                <th>owed</th>
-                <th>category</th>
-            </tr>
-        </table>
-    
-        <?php
     
         while( $result = mysqli_fetch_assoc($expense_data2) )
         {
 
-            echo "<table>
-            <tr>
-                <td>".$result['expense_id']."</td>
-                <td>".$result['paid']."</td>
-                <td>".$result['owed']."</td>
-                <td>".$result['category']."</td>
-                </tr>
-            </table>";
+            echo "<div class='expense'>
+                    <div class='payment'>
+                        <span class='paid'>You Paid</span>
+                        <span class='owe'> You lent</span>
+                    </div>
+                    <div class='info'>
+                        <div class='date'>
+                            <span class='display_date'>Date</span>
+                        </div>
+                    <div class='friendinfo'>
+                        <img src='' alt='image'>
+                        <div class='description'>".$result['category']."</div>
+                        <div class='amount1'>".$result['paid']."</div>
+                        <div class='amount2'>".$result['owed']."</div>
+                    </div>
+                    </div>
+                </div>";
         }
     }
 
