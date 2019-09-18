@@ -24,41 +24,31 @@
         }
 
         .info {
-            background: greenyellow;
             margin: 30px 10px;
             font-size: 45px;
         }
 
         .date {
-            background: green;
             margin-right: 25px;
-
-        }
-
-        .friendinfo {
-            background: orange;
+            border-right: 1px solid;
         }
 
         .payment {
-            background: blueviolet;
             float: right;
             font-size: 20px;
         }
 
         .paid {
-            background: rgb(204, 61, 61);
             margin-right: 35px;
         }
 
         .owe {
-            background: rgb(32, 139, 122);
             margin-right: 45px;
         }
         img{
             height: 40px;
         }
         .description {
-            background: yellow;
             width: 300px;
         }
 
