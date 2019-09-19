@@ -64,7 +64,7 @@ else
     
     <aside class="left-container">
         <div class='tab'>
-            <button class='tablinks' onclick='openCity(event, dashboard)'><h3>Dashboard<h3></button>
+            <button class='tablinks' onclick='opentabs(event, dashboard)'><h3>Dashboard<h3></button>
         </div>
 
         <div><h2>Friends</h2></div>
@@ -90,7 +90,7 @@ else
                 //Tab Layout for Friends Display
 
                 echo "<div class='tab'>
-                        <button class='tablinks' onclick='openCity(event, $friend_name)'><h3>$friend_name<h3></button>
+                        <button class='tablinks' onclick='opentabs(event, $friend_name)'><h3>$friend_name<h3></button>
                         </div>";
             }
         ?>
@@ -99,13 +99,14 @@ else
         <?php
             $search_query = "SELECT * FROM grps_info WHERE user_id = '$user_id'";
             $search_data = mysqli_query($conn, $search_query);
-            $search_result = mysqli_fetch_assoc($search_data);
 
-            $grp_name = $search_result['grpname'];
-            echo "<div class='tab'>
-                        <button class='tablinks' onclick='openCity(event, $friend_name)'><h3>$grp_name<h3></button>
+            while($search_result = mysqli_fetch_assoc($search_data))
+            {
+                $grp_name = $search_result['grpname'];
+                echo "<div class='tab'>
+                        <button class='tablinks' onclick='opentabs(event, $grp_name)'><h3>$grp_name<h3></button>
                         </div>";
-
+            }
         ?>
         
     </aside>
@@ -145,7 +146,7 @@ else
 
                         echo "<div class='tabcontent' id='$friend_name'>
                             <h2>$friend_name</h2>
-                            <p>Friends is the capital city of England.</p>
+                            <p>Friends is the capital tabs of England.</p>
                         </div>";
                         
                      }
@@ -218,7 +219,7 @@ else
         <script src = "../js/jquery-3.4.1.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="./js/nav-mobile.js"></script>
-        <script>function openCity(evt, friendname) {
+        <script>function opentabs(evt, friendname) {
             // Declare all variables
             var i, tabcontent, tablinks;
             
