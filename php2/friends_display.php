@@ -61,7 +61,85 @@
             float:right;
         }
 
+
+
+
+        #_3
+        {
+            background: red;
+        }
+        #_4
+        {
+            background: blue;
+        }
+
+
+
+
+* {box-sizing: border-box}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+}
+
+/* Style the buttons that are used to open the tab content */
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 300px;
+}
+
+
     </style>
+
+<script>
+    
+    function openCity(evt, cityName) 
+    {
+  
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the link that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+
+}
+    </script>
+
+
+
 
 <?php
 
@@ -100,13 +178,44 @@ $size = count($friends_id_array);                           // number of friends
 
 
 
+echo " <div class='tab'>";
+
+// displaying all the friends for the tab 
+foreach($friends_id_array as $x => $x_value)
+{
+        
+    $friend_id = $x_value;     // friends id 
+    $id = (string)$friend_id;
+    $id = "_".$id;
+    
+    $find_friend_query = "SELECT * FROM users_info WHERE user_id = '$friend_id' ";
+    $find_friend_data = mysqli_query($conn, $find_friend_query);
+    $find_friend_result = mysqli_fetch_assoc($find_friend_data);
+
+    $friendname = $find_friend_result['name'];              
+
+    echo "<button class = 'tablinks' onclick = 'openCity(event, $id )'>$id.$friendname</button>";
+
+}
+
+echo "</div>";
+
+
+
+
+
 
 // looping over all the friends 
 foreach($friends_id_array as $x => $x_value)
 {
         
-    $friend_id = $x_value;                                  // friends id 
+    $friend_id = $x_value;     // friends id 
+    $id = (string)$friend_id;
+    $id = "_".$id;                          
    
+    
+    
+    
     // finding freind's info from user_info table
     $find_friend_query = "SELECT * FROM users_info WHERE user_id = '$friend_id' ";
     $find_friend_data = mysqli_query($conn, $find_friend_query);
@@ -114,10 +223,9 @@ foreach($friends_id_array as $x => $x_value)
 
     $friendname = $find_friend_result['name'];              // friend name
 
-    echo "<br>";
-    echo "<h2>".$friendname."</h2>";
-    echo "<br>";
+    
 
+    
     // query for expenses made by the user  
     $expense_query1 = "SELECT * FROM expense WHERE user_id = '$user_id' AND friend_id = '$friend_id' ORDER BY date DESC";
     $expense_data1 = mysqli_query($conn, $expense_query1);
@@ -134,13 +242,19 @@ foreach($friends_id_array as $x => $x_value)
 
 
 
+    // unique id for each div 
+    // id decides which element is show and which is hidden
 
+    echo "<div id = '$id' class = 'tabcontent' >";
+
+    echo "<h2>id: $id ".$friendname."</h2>";
+    echo "<br>";
 
     // displaying the transactions made by the user
-
     if($total1 != 0)
     {
-    
+        
+        
         while( $result = mysqli_fetch_assoc($expense_data1) )
         {
 
@@ -200,4 +314,5 @@ foreach($friends_id_array as $x => $x_value)
         echo "data not found<br>";
     }
 
+    echo "</div>";
 }
