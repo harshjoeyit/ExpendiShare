@@ -11,7 +11,7 @@
 
     $user_id = $result['user_id'];
 
-    //Search Users Group
+    //Searching User's Group
 
     $grp_query = "SELECT * FROM grps_info WHERE user_id='$user_id'";
     $grp_query_data = mysqli_query($conn, $grp_query);
@@ -19,26 +19,24 @@
 
     $grp_members = unserialize($grp_result['members_id']);
 
-    //print_r($grp_members);
-
-    // print_r($grp_result);
-
 
     if(isset($_POST['add_mem'])){
         
         $grp_name = mysqli_real_escape_string($conn, $_POST['name']);
         $member_email = mysqli_real_escape_string($conn, $_POST['email']);
 
-        $search_grp = "SELECT grpname FROM grps_info WHERE user_id = '$user_id'";
+        $search_grp = "SELECT * FROM grps_info WHERE user_id = '$user_id' AND grpname = '$grp_name'";
         $search_grp_data = mysqli_query($conn, $search_grp);
         // $search_grp_array = mysqli_fetch_array($search_grp_data);
         // print_r($search_grp_array);
         // $search_grp_array = mysqli_fetch_array($search_grp_data);
         // print_r($search_grp_array);
         $rows = mysqli_num_rows($search_grp_data);
-        $search_grp_array = array();
 
         echo "$rows";
+        $search_grp_array = array();
+
+        //echo "$rows";
         while($rows--){
             $grps = mysqli_fetch_assoc($search_grp_data);
             $search_grp_array[] = $grps['grpname'];
@@ -124,6 +122,5 @@
         }
 
     }
-
-
+    
 ?>
