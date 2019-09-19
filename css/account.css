@@ -1,7 +1,7 @@
 #page{
 
     width: 968px;
-    height: 830px;
+    height: 950px;
     margin: auto;
     background-color: #E3E4DB;
     border: 3px solid rgb(221, 69, 95);
@@ -15,7 +15,10 @@
 img{
     width: 200px;
     margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: block;
+    border-radius: 10px;
 }
 
 
@@ -30,7 +33,7 @@ form input[type="text"], input[type="email"], input[type="password"], input[type
     padding: 15px 14px;
     margin: 10px 20px;
     overflow: hidden;
-    margin-left: 200px;
+    margin-left: 100px;
     border: 2px solid #DB2955;
 }
 
@@ -47,11 +50,12 @@ form input[type="submit"]{
     text-transform: uppercase;
     letter-spacing: 1px;
     float: right;
+    margin-right: 65px;
 }
 
 button{
     float: right;
-    margin-right: 40px;
+    margin-right: 100px;
 }
 
 form input:active[type="submit"]{
@@ -76,12 +80,13 @@ h2{
 }
 
 p{
-    margin: 10px 20px;
+    margin: 40px 20px;
     text-align: center;
     font-size: 22px;
     color:  #DB2955
 }
 label{
+    margin-top: 40px;
     text-align: center;
     font-size: 22px;
     color:  #DB2955;

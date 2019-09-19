@@ -83,7 +83,7 @@ else
                     <button id = "canceleditemail">Cancel</button>
                 </div>
                 <!-- seperate styles -->
-                <label style="display: block; margin: 10px;"   for="password">Update Password</label>
+                <br><br><label style="display: block;"   for="password">Update Password</label>
                 <button id = "editpassword">Edit</button>
                 <div id = "passwordform">
                     <input type="password" name="oldpassword" placeholder="Old Password">
@@ -91,7 +91,7 @@ else
                     <button id = "canceleditpassword">Cancel</button>
                 </div>
                 <!-- seperate styles -->
-                <div>
+                <br><br><br><br><div>
                     <input style="display: block; float:right; margin: 10px;"type="submit" name = "Update" value = "Update">
                 </div>
             </form>
