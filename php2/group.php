@@ -7,14 +7,20 @@
     $find_query= "SELECT user_id FROM users_info WHERE email= '$user_email'";
     $find = mysqli_query($conn, $find_query);
     $result = mysqli_fetch_assoc($find);
-    print_r($result);
+    //print_r($result);
     $user_id = $result['user_id'];
 
     if(isset($_POST['create']))
     {
         $grpname= mysqli_real_escape_string($conn,$_POST['name']);
 
-        if($grpname != "")
+        $query = "SELECT grpname FROM grps_info WHERE user_id = '$user_id'";
+        $query_data = mysqli_query($conn, $query);
+        $query_result = mysqli_num_rows($query_data);
+
+        if(!$query_result){
+
+            if($grpname != "")
         {
             $member_email = mysqli_real_escape_string($conn, $_POST['email']);
 
@@ -48,9 +54,21 @@
                 }
 
             }
+            // Adding Group in the member's database
 
+            $array = array($user_id);
+            $string = serialize($array);
+            $insert_query = "INSERT INTO grps_info VALUES('$member_id', '0', '$grpname', '$string')";
+            $insert_data = mysqli_query($conn, $insert_query);
+        }
 
         }
+        else{
+
+            echo "Groups already exist";
+        }
+
+        
     }
 
 ?>
