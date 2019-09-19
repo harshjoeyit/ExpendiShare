@@ -20,7 +20,8 @@
     $grp_members = unserialize($grp_result['members_id']);
 
 
-    if(isset($_POST['add_mem'])){
+    if(isset($_POST['add_mem']))
+    {
         
         $grp_name = mysqli_real_escape_string($conn, $_POST['name']);
         $member_email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -104,8 +105,12 @@
 
         }
 
-        else{
-            echo "Group not Found";
+        else
+        {
+            ?>
+            <script> window.alert('Group Not Found') </script>
+            <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+            <?php 
         }
 
     }
