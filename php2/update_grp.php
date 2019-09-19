@@ -25,49 +25,20 @@
         $grp_name = mysqli_real_escape_string($conn, $_POST['name']);
         $member_email = mysqli_real_escape_string($conn, $_POST['email']);
 
-        $search_grp = "SELECT * FROM grps_info WHERE user_id = '$user_id' AND grpname = '$grp_name'";
+        $search_grp = "SELECT grpname FROM grps_info WHERE user_id = '$user_id' AND grpname = '$grp_name'";
         $search_grp_data = mysqli_query($conn, $search_grp);
-        // $search_grp_array = mysqli_fetch_array($search_grp_data);
-        // print_r($search_grp_array);
-        // $search_grp_array = mysqli_fetch_array($search_grp_data);
-        // print_r($search_grp_array);
         $rows = mysqli_num_rows($search_grp_data);
 
-        echo "$rows";
         $search_grp_array = array();
 
-        //echo "$rows";
         while($rows--){
             $grps = mysqli_fetch_assoc($search_grp_data);
             $search_grp_array[] = $grps['grpname'];
-            //print_r($search_grp_array);
         }
-        print "<br>";
+
         print_r($search_grp_array);
 
-        // $search_grp_array = array();
-        // $i =0;
-        // echo "Hello";
-
-        // while($row = mysql_fetch_array($search_grp_data)) {
-        //     // $search_grp_array[$i++] = $row['grpname'];
-        //     print_r($row);
-        //     echo "Not Hello";
-        // }   
-
-        // print_r($search_grp_array);
-        // echo "HEllo;";
-
-        $grp_count = 0;
-
-        foreach($search_grp_array as $y => $y_value){
-
-            if($y_value == $grp_name){
-                $grp_count++;
-            }
-        }
-
-        if($grp_count){
+        if(in_array($grp_name, $search_grp_array, TRUE)){
 
             $search_query = "SELECT * FROM users_info WHERE email = '$member_email'";
             $search_data = mysqli_query($conn, $search_query);
@@ -91,15 +62,15 @@
     
                     //Updating Group Members
     
-                    $grp_members = array_pad($grp_members, count($grp_members)+1, $member_id);
+                    $grp_members1 = array_pad($grp_members, count($grp_members)+1, $member_id);
     
                     //Serializing the group member's array
     
-                    $grp = serialize($grp_members);
+                    $grp = serialize($grp_members1);
     
                     //Updating the grps_info database
     
-                    $update_query = "UPDATE grps_info SET members_id = '$grp'";
+                    $update_query = "UPDATE grps_info SET members_id = '$grp' WHERE user_id = '$user_id'";
                     $update_data = mysqli_query($conn, $update_query);
     
                     if($update_data){
@@ -108,6 +79,12 @@
                     else{
                         echo "Not Updated";
                     }
+                    // adding grp to member
+                    $grp_members2 = array_pad($grp_members, count($grp_members)+1,$user_id);
+                    $grps = serialize($grp_members2);
+
+                    $insert_query = "INSERT INTO grps_info VALUES ('$member_id', '0', '$grp_name', '$grps')";
+                    $insert_data = mysqli_query($conn, $insert_query);
                 }
                 
     
