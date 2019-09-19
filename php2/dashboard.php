@@ -94,7 +94,7 @@ else
                     //Tab Layout for Friends Display
 
                     echo "<div class='tab'>
-                            <button><a  style='color: black; font-size: 22px; padding-left: 10px' href = 'expense.php?group_id=0&friend_id=$x_value' >".$friend_name."</a></button>
+                            <button><a  style='color: #011627; font-size: 22px; padding-left: 10px' href = 'expense.php?group_id=0&friend_id=$x_value' >".$friend_name."</a></button>
                             </div>";
                 }
             }
