@@ -75,26 +75,30 @@ else
 
             $search_query = "SELECT * FROM friends_info WHERE user_id = '$user_id'";
             $search_data = mysqli_query($conn, $search_query);
-            $search_result = mysqli_fetch_assoc($search_data);
-            $friends_id = $search_result['friends_id'];
-            $friends_id_array = unserialize($friends_id);
+            $search_rows = mysqli_num_rows($search_data);
+            if($search_rows){
+                $search_result = mysqli_fetch_assoc($search_data);
+                $friends_id = $search_result['friends_id'];
+                $friends_id_array = unserialize($friends_id);
             
-            foreach($friends_id_array as $x => $x_value)
-            {
+                foreach($friends_id_array as $x => $x_value)
+                {
                 
-                $find_name_query = "SELECT * FROM users_info WHERE user_id = '$x_value'";
-                $find_name_data = mysqli_query($conn, $find_name_query);
-                $find_name_result = mysqli_fetch_assoc($find_name_data);
+                    $find_name_query = "SELECT * FROM users_info WHERE user_id = '$x_value'";
+                    $find_name_data = mysqli_query($conn, $find_name_query);
+                    $find_name_result = mysqli_fetch_assoc($find_name_data);
 
-                $friend_name = $find_name_result['name'];
+                    $friend_name = $find_name_result['name'];
                 
 
-                //Tab Layout for Friends Display
+                    //Tab Layout for Friends Display
 
-                echo "<div class='tab'>
-                        <button><a  style='color: black; font-size: 22px; padding-left: 10px' href = 'expense.php?group_id=0&friend_id=$x_value' >".$friend_name."</a></button>
-                        </div>";
+                    echo "<div class='tab'>
+                            <button><a  style='color: black; font-size: 22px; padding-left: 10px' href = 'expense.php?group_id=0&friend_id=$x_value' >".$friend_name."</a></button>
+                            </div>";
+                }
             }
+            
         ?>
         <a href="#"><button class="split-with-friends">Split with Friends</button></a>
         <div><h2>Groups</h2></div>
@@ -137,29 +141,12 @@ else
                     <input type="number" name="money" placeholder="Enter the amount" required>
                     <button type="submit" name="split">Split</button>
                 </form>
-                <?php 
-
-                     foreach($friends_id_array as $x => $x_value){
-
-
-                        $find_name_query = "SELECT * FROM users_info WHERE user_id = '$x_value'";
-                        $find_name_data = mysqli_query($conn, $find_name_query);
-                        $find_name_result = mysqli_fetch_assoc($find_name_data);
-                        
-                        $friend_name = $find_name_result['name'];
-
-                        echo "<div class='tabcontent' id='$friend_name'>
-                            <h2>$friend_name</h2>
-                            <p>Friends is the capital tabs of England.</p>
-                        </div>";
-                        
-                     }
-
-                ?>
         </div>
             
             
         </section>
+
+        <!--Right Contain-->
         
         <aside class="right-container">
             
@@ -215,36 +202,8 @@ else
             </form>
         </aside>
         
-        
-        <!--Right Contain-->
-        
-        
-        
-        
-        <script src = "../js/jquery-3.4.1.js"></script>
-        <script src="../js/dashboard.js"></script>
-        <script src="./js/nav-mobile.js"></script>
-        <script>function opentabs(evt, friendname) 
-        {
-            // Declare all variables
-            var i, tabcontent, tablinks;
-            
-            // Get all elements with class="tabcontent" and hide them
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            
-            // Get all elements with class="tablinks" and remove the class "active"
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            
-            // Show the current tab, and add an "active" class to the link that opened the tab
-            document.getElementById(friendname).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-        </script>
     </body>   
+    <script src = "../js/jquery-3.4.1.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="./js/nav-mobile.js"></script>
     </html>

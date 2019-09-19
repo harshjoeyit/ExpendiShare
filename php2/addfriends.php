@@ -53,17 +53,81 @@ if(isset($_POST['add']))
             $friend_array_decode = unserialize($friend_string);
             
             $size = count($friend_array_decode);
-            
-            $updated_friend_array = array_pad($friend_array_decode, $size+1, $friend_id);
-            $updated_serialize_array = serialize($updated_friend_array);
-            $unserialize_array = unserialize($updated_serialize_array);
-            print_r($unserialize_array);
 
-            $update_query = "UPDATE friends_info SET friends_id = '$updated_serialize_array'";
-            $update_data = mysqli_query($conn, $update_query);
+            if(in_array($friend_id, $friend_array_decode, TRUE)){
+                echo "Already added";
+            }
+            else{
+                $updated_friend_array = array_pad($friend_array_decode, $size+1, $friend_id);
+                $updated_serialize_array = serialize($updated_friend_array);
+                $unserialize_array = unserialize($updated_serialize_array);
+                //print_r($unserialize_array);
+
+                $update_query = "UPDATE friends_info SET friends_id = '$updated_serialize_array' WHERE user_id = $user_id";
+                $update_data = mysqli_query($conn, $update_query);
+            }
+            
+            
             
         }
+
+        //Adding user as friend in Friend id databse
+
+        $friend_query = "SELECT * FROM friends_info WHERE user_id ='$friend_id' ";
+        $friend_data = mysqli_query($conn, $friend_query);
+        $friend_row = mysqli_num_rows($friend_data);
+
+        if($friend_row){
+            
+            $query = "SELECT friends_id FROM friends_info WHERE user_id = '$friend_id'";
+            $update_friend = mysqli_query($conn, $query);
+            $update_result = mysqli_fetch_assoc($update_friend);
+
+            $member_string = $update_result['friends_id'];
+
+            $member_array = unserialize($member_string);
+
+            if(in_array($user_id, $member_array, TRUE)){
+
+
+                echo "<br>";
+                echo "Already Added";
+            }
+
+            else{
+                
+                $member_array = array_pad($member_array, count($member_array)+1, $user_id);
+                $array_string = serialize($member_array);
+
+                $update_query = "UPDATE friends_info SET friends_id = '$array_string' WHERE user_id = '$friend_id'";
+                $updating_data = mysqli_query($conn, $update_query);
+
+            }
+            
+            
+            //UPDATING THE FRIENDS
+        }
+        else{
+            // INSERTING THE ENTRY
+
+            $array = array($user_id);
+            $string = serialize($array);
+
+            $insert_friend_query = "INSERT INTO friends_info VALUES ('$friend_id','$string')";
+            $insert_friend_data = mysqli_query($conn, $insert_friend_query);
+            
+
+            if($insert_friend_data){
+
+                echo "Friend Added";
+            }
+
+            else{
+                echo "not added";
+            }
+        }
     }
+
     
     
 }
