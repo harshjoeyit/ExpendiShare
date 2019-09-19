@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
     $password = mysqli_real_escape_string($conn,$_POST['password']); 
     $location = '../user_profile_pics/default.png';
 
-    if($name != "" && $email != "" && $password != "")
+    /*if($name != "" && $email != "" && $password != "")
     {
         // validate the password here
 
@@ -30,10 +30,14 @@ if(isset($_POST['submit']))
 
         else
         {
-            ?>
-            <script> window.alert('User exists, try another email') </script>
-            <META HTTP-EQUIV="Refresh" CONTENT="0; URL= ../html/login.html" >
-            <?php
+            ?>*/
+            // <script> window.alert('User exists, try another email') </script>
+            // <META HTTP-EQUIV="Refresh" CONTENT="0; URL= ../html/login.html" >
+            // <?php
+        // }
+
+        if(empty($name) || empty($email) || empty($password)){
+           
         }
 
     }

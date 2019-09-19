@@ -64,7 +64,8 @@ else
     
     <aside class="left-container">
         <div class='tab'>
-            <button class='tablinks' onclick='openCity(event, dashboard)'><h3>Dashboard<h3></button>
+            <button class='tablinks' onclick='opentab(event, dashboard)'><h2>Dashboard<h2></button>
+            <hr>
         </div>
 
         <div><h2>Friends</h2></div>
@@ -218,7 +219,7 @@ else
         <script src = "../js/jquery-3.4.1.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="./js/nav-mobile.js"></script>
-        <script>function openCity(evt, friendname) {
+        <script>function opentab(evt, friendname) {
             // Declare all variables
             var i, tabcontent, tablinks;
             
