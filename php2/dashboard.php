@@ -64,7 +64,7 @@ else
     
     <aside class="left-container">
         <div class='tab'>
-            <button class='tablinks' onclick='opentabs(event, dashboard)'><h2>Dashboard<h2></button>
+            <button><a href = "dashboard.php"><h2>Dashboard<h2></a></button>
         </div>
 
         <div><h2>Friends</h2></div>
@@ -79,7 +79,9 @@ else
             $friends_id = $search_result['friends_id'];
             $friends_id_array = unserialize($friends_id);
             
-            foreach($friends_id_array as $x => $x_value){
+            foreach($friends_id_array as $x => $x_value)
+            {
+                
                 $find_name_query = "SELECT * FROM users_info WHERE user_id = '$x_value'";
                 $find_name_data = mysqli_query($conn, $find_name_query);
                 $find_name_result = mysqli_fetch_assoc($find_name_data);
@@ -90,11 +92,11 @@ else
                 //Tab Layout for Friends Display
 
                 echo "<div class='tab'>
-                        <button class='tablinks' onclick='opentabs(event, $friend_name)'><h3>$friend_name<h3></button>
+                        <button><a  style='color: black; font-size: 22px; padding-left: 10px' href = 'expense.php?group_id=0&friend_id=$x_value' >".$friend_name."</a></button>
                         </div>";
             }
         ?>
-        <button class="split-with-friends">Split with Friends</button>
+        <a href="#"><button class="split-with-friends">Split with Friends</button></a>
         <div><h2>Groups</h2></div>
         <hr>
         <?php
