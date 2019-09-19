@@ -158,6 +158,7 @@ else
             
             
         </section>
+        
         <aside class="right-container">
             
             <!-- Search Friend -->
@@ -221,7 +222,8 @@ else
         <script src = "../js/jquery-3.4.1.js"></script>
         <script src="../js/dashboard.js"></script>
         <script src="./js/nav-mobile.js"></script>
-        <script>function opentabs(evt, friendname) {
+        <script>function opentabs(evt, friendname) 
+        {
             // Declare all variables
             var i, tabcontent, tablinks;
             
@@ -240,6 +242,7 @@ else
             // Show the current tab, and add an "active" class to the link that opened the tab
             document.getElementById(friendname).style.display = "block";
             evt.currentTarget.className += " active";
-        }</script>
+        }
+        </script>
     </body>   
     </html>

@@ -27,45 +27,25 @@ if(isset($_POST['split'])){
     $category= mysqli_real_escape_string($conn, $_POST['category']);
     
     $split = $money/$size;
-
-    print_r($friends_id_array);
-    echo "<br>";
-    
     
     $today_date = date('Y-m-d H:i:s');
     
     foreach($friends_id_array as $x => $x_value){
         
         $friend_id = $x_value;
-        //Dispaly friends
-
-        $find_query = "SELECT name FROM users_info WHERE user_id = '$friend_id' ORDER BY 'name'";
-        $find_query_data = mysqli_query($conn, $find_query);
-        $find_result = mysqli_fetch_assoc($find_query_data);
-
-        $friend_name= $find_result['name'];
-
-        echo $friend_name;
-        echo "<br>";
-        
-        
+        // INSERTING DATA INTO EXPENSE;
+        $insert_query = "INSERT INTO expense VALUES ('0', '$user_id', '$friend_id', '$money', '$split', '$category', '$today_date' )";
+        $execute_query = mysqli_query($conn, $insert_query);        
     }
     
-    // if($execute_query){
-    //     echo "Data is inserted";
-    // }
+    if($execute_query){
+        echo "Data is inserted";
+    }
     
-    // else{
-    //     echo "Data is not inserted";
-    // }
+    else{
+        echo "Data is not inserted";
+    }
     
 }
-//INSERTING DATA INTO EXPENSE;
-// $insert_query = "INSERT INTO expense VALUES ('0', '$user_id', '$friend_id', '$money', '$split', '$category', '$today_date' )";
-// $execute_query = mysqli_query($conn, $insert_query);
-
-// echo "$friend_id";
-// echo "<br>";
-
 
 ?>
