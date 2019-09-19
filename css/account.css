@@ -1,6 +1,7 @@
-#page
-{
+#page{
+
     width: 968px;
+    height: 950px;
     margin: auto;
     background-color: #E3E4DB;
     border: 3px solid rgb(221, 69, 95);
@@ -11,12 +12,17 @@
     border-radius: 10px;
 }
 
-img
-{
+img{
     width: 200px;
-    
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 10px;
 }
-form input[type="text"], input[type="email"], input[type="password"]{
+
+
+form input[type="text"], input[type="email"], input[type="password"], input[type="file"]{
     border-radius: 10px;
     font-weight: 500;
     color: #DB2955;
@@ -25,9 +31,12 @@ form input[type="text"], input[type="email"], input[type="password"]{
     background: #DDDFDF;
     border: none;
     padding: 15px 14px;
-    margin: 10px 0;
+    margin: 10px 20px;
     overflow: hidden;
+    margin-left: 100px;
+    border: 2px solid #DB2955;
 }
+
 form input[type="submit"]{
     outline: none;
     cursor: pointer;
@@ -40,10 +49,19 @@ form input[type="submit"]{
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    float: right;
+    margin-right: 65px;
 }
+
+button{
+    float: right;
+    margin-right: 100px;
+}
+
 form input:active[type="submit"]{
     transform: scale(0.9);
 }
+
 label{
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -52,4 +70,24 @@ label{
     text-decoration: none;
     border: none;
     margin: 0;
+}
+
+h2{
+    font-size: 40px;
+    margin-top: 40px;
+    text-align: center;
+    color:  #DB2955;
+}
+
+p{
+    margin: 40px 20px;
+    text-align: center;
+    font-size: 22px;
+    color:  #DB2955
+}
+label{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 22px;
+    color:  #DB2955;
 }
