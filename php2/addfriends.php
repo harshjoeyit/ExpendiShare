@@ -1,22 +1,29 @@
 <?php
 
+
+
 session_start();
 include('connect.php');
 error_reporting(0);
+
 
 $user_email = $_SESSION['email'];
 $find_query = "SELECT user_id from users_info WHERE email = '$user_email'";
 $data = mysqli_query($conn, $find_query);
 $result = mysqli_fetch_assoc($data);
 
+
 $user_id = $result['user_id'];
+
 
 $search_query = "SELECT * FROM friends_info WHERE user_id ='$user_id' ";
 $search_data = mysqli_query($conn, $search_query);
 $search_row = mysqli_num_rows($search_data);
 
+
 if(isset($_POST['add']))
 {
+
     $curr_email = mysqli_real_escape_string($conn, $_POST['email']);
     $find_query2 = "SELECT * FROM users_info WHERE email = '$curr_email' " ;
     $data2 = mysqli_query($conn, $find_query2);
@@ -26,9 +33,9 @@ if(isset($_POST['add']))
     
     if($total == 1)
     {
-        if($search_row == 0){
-            
-            
+        if($search_row == 0)
+        {
+                
             $friend_array = array($friend_id);
             
             $string_array = serialize($friend_array);
@@ -38,12 +45,22 @@ if(isset($_POST['add']))
             
             if($insert_data)
             {
-                echo "datas inserted ";
+                ?>
+                <script> window.alert('You are Now Friends') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
             }
             else
-            echo "not inserted ";
+            {
+                ?>
+                <script> window.alert('Freind Not Added') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
+            }
         }
-        else{
+
+        else
+        {
             
             // Update the array
             $find_friend_query = "SELECT friends_id FROM friends_info WHERE user_id = '$user_id'";
@@ -55,7 +72,12 @@ if(isset($_POST['add']))
             $size = count($friend_array_decode);
 
             if(in_array($friend_id, $friend_array_decode, TRUE)){
-                echo "Already added";
+                
+                ?>
+                <script> window.alert('Freind Already Added') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
+
             }
             else{
                 $updated_friend_array = array_pad($friend_array_decode, $size+1, $friend_id);
@@ -65,12 +87,18 @@ if(isset($_POST['add']))
 
                 $update_query = "UPDATE friends_info SET friends_id = '$updated_serialize_array' WHERE user_id = $user_id";
                 $update_data = mysqli_query($conn, $update_query);
+
+                ?>
+                <script> window.alert('You Are Now Friends') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
             }
             
             
             
         }
 
+        
         //Adding user as friend in Friend id databse
 
         $friend_query = "SELECT * FROM friends_info WHERE user_id ='$friend_id' ";
@@ -87,11 +115,12 @@ if(isset($_POST['add']))
 
             $member_array = unserialize($member_string);
 
-            if(in_array($user_id, $member_array, TRUE)){
-
-
-                echo "<br>";
-                echo "Already Added";
+            if(in_array($user_id, $member_array, TRUE))
+            {
+                ?>
+                <script> window.alert('Friend Already Present') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
             }
 
             else{
@@ -101,6 +130,11 @@ if(isset($_POST['add']))
 
                 $update_query = "UPDATE friends_info SET friends_id = '$array_string' WHERE user_id = '$friend_id'";
                 $updating_data = mysqli_query($conn, $update_query);
+
+                ?>
+                <script> window.alert('You Are Now Friends') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
 
             }
             
@@ -119,16 +153,21 @@ if(isset($_POST['add']))
 
             if($insert_friend_data){
 
-                echo "Friend Added";
+                ?>
+                <script> window.alert('You Are Friends Now') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
             }
 
-            else{
-                echo "not added";
+            else
+            {
+                ?>
+                <script> window.alert('Friend Not Added') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
             }
         }
     }
-
-    
     
 }
 
