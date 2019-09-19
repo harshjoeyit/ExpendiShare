@@ -64,7 +64,7 @@ else
     
     <aside class="left-container">
         <div class='tab'>
-            <button class='tablinks' onclick='opentabs(event, dashboard)'><h3>Dashboard<h3></button>
+            <button class='tablinks' onclick='opentabs(event, dashboard)'><h2>Dashboard<h2></button>
         </div>
 
         <div><h2>Friends</h2></div>
@@ -94,6 +94,7 @@ else
                         </div>";
             }
         ?>
+        <button class="split-with-friends">Split with Friends</button>
         <div><h2>Groups</h2></div>
         <hr>
         <?php
@@ -108,7 +109,8 @@ else
                         </div>";
             }
         ?>
-        
+        <button class="split-within-groups">Split within Groups</button>
+
     </aside>
     
     <!--Main Contain-->

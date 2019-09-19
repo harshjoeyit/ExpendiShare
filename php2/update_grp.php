@@ -31,7 +31,34 @@
 
         $search_grp = "SELECT grpname FROM grps_info WHERE user_id = '$user_id'";
         $search_grp_data = mysqli_query($conn, $search_grp);
-        $search_grp_array = mysqli_fetch_assoc($search_grp_data);
+        // $search_grp_array = mysqli_fetch_array($search_grp_data);
+        // print_r($search_grp_array);
+        // $search_grp_array = mysqli_fetch_array($search_grp_data);
+        // print_r($search_grp_array);
+        $rows = mysqli_num_rows($search_grp_data);
+        $search_grp_array = array();
+
+        echo "$rows";
+        while($rows--){
+            $grps = mysqli_fetch_assoc($search_grp_data);
+            $search_grp_array[] = $grps['grpname'];
+            //print_r($search_grp_array);
+        }
+        print "<br>";
+        print_r($search_grp_array);
+
+        // $search_grp_array = array();
+        // $i =0;
+        // echo "Hello";
+
+        // while($row = mysql_fetch_array($search_grp_data)) {
+        //     // $search_grp_array[$i++] = $row['grpname'];
+        //     print_r($row);
+        //     echo "Not Hello";
+        // }   
+
+        // print_r($search_grp_array);
+        // echo "HEllo;";
 
         $grp_count = 0;
 
