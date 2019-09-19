@@ -24,7 +24,8 @@
     // print_r($grp_result);
 
 
-    if(isset($_POST['add_mem'])){
+    if(isset($_POST['add_mem']))
+    {
         
         $grp_name = mysqli_real_escape_string($conn, $_POST['name']);
         $member_email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -62,20 +63,23 @@
 
         $grp_count = 0;
 
-        foreach($search_grp_array as $y => $y_value){
+        foreach($search_grp_array as $y => $y_value)
+        {
 
             if($y_value == $grp_name){
                 $grp_count++;
             }
         }
 
-        if($grp_count){
+        if($grp_count)
+        {
 
             $search_query = "SELECT * FROM users_info WHERE email = '$member_email'";
             $search_data = mysqli_query($conn, $search_query);
             $search_result = mysqli_fetch_assoc($search_data);
             
-            if($search_result){
+            if($search_result)
+            {
                 
                 $member_id = $search_result['user_id'];
     
@@ -104,23 +108,39 @@
                     $update_query = "UPDATE grps_info SET members_id = '$grp'";
                     $update_data = mysqli_query($conn, $update_query);
     
-                    if($update_data){
-                        echo "Updated";
+                    if($update_data)
+                    {
+                        ?>
+                        <script> window.alert('Group Updated') </script>
+                        <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                        <?php 
                     }
-                    else{
-                        echo "Not Updated";
+                    else
+                    {
+                        ?>
+                        <script> window.alert('Could not Update the Group') </script>
+                        <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                        <?php 
                     }
                 }
-                
-    
+            
             }
-            else{
-                echo "Not Found";
-            }
+
+            else
+            {
+                ?>
+                <script> window.alert('Member Not Found') </script>
+                <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+                <?php 
+            }   
         }
 
-        else{
-            echo "Group not Found";
+        else
+        {
+            ?>
+            <script> window.alert('Group Not Found') </script>
+            <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+            <?php 
         }
 
     }
