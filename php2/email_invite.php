@@ -1,23 +1,3 @@
-<?php
-    
-    // $message = "this is an email invite form ExpendiShare";
-    // $subject = "Invite";
-
-    // if(isset($_POST['send']))
-    // {
-    //     $e = $_POST['email'];
-    //     $s = $subject;
-    //     $m = $message;
-       
-    //     if( mail($e, $s, $m) )     
-    //         echo "mail sent";
-    //     else
-    //         echo "not sent";
-    // }
-    // else
-    //     echo"email not send";
-?>
-
 
  <?php
  
