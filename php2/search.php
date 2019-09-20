@@ -16,4 +16,9 @@
 
         print_r($result);
     }
+
+
+    phpinfo();
 ?>
+
+

@@ -168,7 +168,16 @@ if(isset($_POST['add']))
             }
         }
     }
+    else
+    {      
+        ?>
+        <script> window.alert('Your Friend does NOt use ExpendiShare') </script>
+        <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+        <?php 
+    }
     
 }
+
+
 
 ?>
