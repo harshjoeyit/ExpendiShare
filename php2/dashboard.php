@@ -124,9 +124,11 @@ else
     
     <section class="main-content">
         <div class="container">
-            <div class="heading">
+            <div >               
+                <!-- <span>Welcome</span> -->
+                <h1 style="margin-bottom: 40px; text-align: center; color: #DB2955; ">Welcome</h1>
+                <hr>
                 
-                <span>Welcome</span>
                 <div class="expense_container">
                     <button><a class="add_expense">Add Expense</a></button>
                     <button><a class="settle_up">Settle Up</a></button>

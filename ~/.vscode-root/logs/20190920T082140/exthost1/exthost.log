@@ -1,0 +1,28 @@
+[2019-09-20 08:21:49.680] [exthost] [info] extension host started
+[2019-09-20 08:21:49.848] [exthost] [info] ExtensionService#_doActivateExtension vscode.php-language-features {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-20 08:21:49.849] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/php-language-features/dist/phpMain
+[2019-09-20 08:21:50.112] [exthost] [info] ExtensionService#_doActivateExtension ecmel.vscode-html-css {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-20 08:21:50.112] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ecmel.vscode-html-css-0.2.3/dist/extension
+[2019-09-20 08:21:50.401] [exthost] [info] ExtensionService#_doActivateExtension felixfbecker.php-intellisense {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-20 08:21:50.401] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/felixfbecker.php-intellisense-2.3.12/out/extension
+[2019-09-20 08:21:50.804] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:50.804] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-09-20 08:21:50.812] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:50.812] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-09-20 08:21:50.862] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:50.862] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2019-09-20 08:21:51.030] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:51.030] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-09-20 08:21:51.039] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:51.039] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/coenraads.bracket-pair-colorizer-1.0.61/out/src/extension
+[2019-09-20 08:21:51.300] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:51.301] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/equinusocio.vsc-material-theme-30.0.0/out/src/material.theme.config
+[2019-09-20 08:21:51.341] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:51.341] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ms-vscode.cpptools-0.25.1/dist/main
+[2019-09-20 08:21:51.550] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:51.550] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/pkief.material-icon-theme-3.9.0/dist/extension
+[2019-09-20 08:21:51.612] [exthost] [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer {"startup":true,"activationEvent":"*"}
+[2019-09-20 08:21:51.612] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ritwickdey.liveserver-5.6.1/out/src/extension
+[2019-09-20 08:21:57.193] [exthost] [info] eager extensions activated
+[2019-09-20 08:56:40.538] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"activationEvent":"onLanguage:css"}
+[2019-09-20 08:56:40.539] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/css-language-features/client/dist/cssMain

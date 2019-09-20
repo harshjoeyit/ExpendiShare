@@ -1,0 +1,10 @@
+[2019-09-19 09:11:32.819] [main] [info] update#setState idle
+[2019-09-19 09:12:02.834] [main] [info] update#setState checking for updates
+[2019-09-19 09:12:02.844] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 09:12:02.844] [main] [info] update#setState idle
+[2019-09-19 10:12:02.842] [main] [info] update#setState checking for updates
+[2019-09-19 10:12:02.857] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 10:12:02.857] [main] [info] update#setState idle
+[2019-09-19 11:12:02.873] [main] [info] update#setState checking for updates
+[2019-09-19 11:12:02.889] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 11:12:02.889] [main] [info] update#setState idle

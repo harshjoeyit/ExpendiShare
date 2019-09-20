@@ -1,0 +1,60 @@
+Looking for git in: git
+Using git 2.20.1 from git
+> git rev-parse --show-toplevel
+> git rev-parse --git-dir
+> git config --get commit.template
+Open repository: /opt/lampp/htdocs/ExpendiShare
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin
+> git show :php2/update_grp.php
+> git check-ignore -v -z --stdin
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git ls-tree -l HEAD -- /opt/lampp/htdocs/ExpendiShare/php2/dashboard.php
+> git show 135b33eccf4b9a761dfd7127421640abcb82c6cb
+> git ls-files --stage -- /opt/lampp/htdocs/ExpendiShare/php2/dashboard.php
+> git cat-file -s 5f2de0fabf4fb9613bfb6fbe4fb6d46a6d692b8b
+> git show 5f2de0fabf4fb9613bfb6fbe4fb6d46a6d692b8b
+> git show HEAD:php2/dashboard.php
+> git show :php2/dashboard.php
+> git show :php2/update_grp.php
+> git ls-tree -l HEAD -- /opt/lampp/htdocs/ExpendiShare/php2/dashboard.php
+> git show 135b33eccf4b9a761dfd7127421640abcb82c6cb
+> git ls-files --stage -- /opt/lampp/htdocs/ExpendiShare/php2/dashboard.php
+> git cat-file -s 5f2de0fabf4fb9613bfb6fbe4fb6d46a6d692b8b
+> git show 5f2de0fabf4fb9613bfb6fbe4fb6d46a6d692b8b
+> git ls-tree -l HEAD -- /opt/lampp/htdocs/ExpendiShare/php2/group.php
+> git show ad5daf1a93c38f9a08d92da27166f465a3163079
+> git ls-files --stage -- /opt/lampp/htdocs/ExpendiShare/php2/group.php
+> git cat-file -s 05a7bd1d37f45f29615d258d5d7d0a3f768cee59
+> git show 05a7bd1d37f45f29615d258d5d7d0a3f768cee59
+> git show HEAD:php2/group.php
+> git show :php2/group.php
+> git show HEAD:php2/group.php
+> git show :php2/group.php
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+> git rev-list --left-right master...refs/remotes/origin/master
+> git for-each-ref --format %(refname) %(objectname) --sort -committerdate
+> git remote --verbose
+> git check-ignore -v -z --stdin

@@ -1,0 +1,42 @@
+[2019-09-19 09:11:37.767] [exthost] [info] extension host started
+[2019-09-19 09:11:37.810] [exthost] [info] ExtensionService#_doActivateExtension vscode.php-language-features {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-19 09:11:37.810] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/php-language-features/dist/phpMain
+[2019-09-19 09:11:37.826] [exthost] [info] ExtensionService#_doActivateExtension ecmel.vscode-html-css {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-19 09:11:37.826] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ecmel.vscode-html-css-0.2.3/dist/extension
+[2019-09-19 09:11:38.005] [exthost] [info] ExtensionService#_doActivateExtension felixfbecker.php-intellisense {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-19 09:11:38.005] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/felixfbecker.php-intellisense-2.3.10/out/extension
+[2019-09-19 09:11:38.066] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.066] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-09-19 09:11:38.068] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.068] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-09-19 09:11:38.119] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.119] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2019-09-19 09:11:38.222] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.222] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-09-19 09:11:38.228] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.228] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/coenraads.bracket-pair-colorizer-1.0.61/out/src/extension
+[2019-09-19 09:11:38.243] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.243] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/equinusocio.vsc-material-theme-30.0.0/out/src/material.theme.config
+[2019-09-19 09:11:38.258] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.258] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ms-vscode.cpptools-0.25.1/dist/main
+[2019-09-19 09:11:38.456] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.456] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/pkief.material-icon-theme-3.9.0/dist/extension
+[2019-09-19 09:11:38.474] [exthost] [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer {"startup":true,"activationEvent":"*"}
+[2019-09-19 09:11:38.474] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ritwickdey.liveserver-5.6.1/out/src/extension
+[2019-09-19 09:11:39.084] [exthost] [info] eager extensions activated
+[2019-09-19 09:39:27.982] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"activationEvent":"onLanguage:css"}
+[2019-09-19 09:39:27.982] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/css-language-features/client/dist/cssMain
+[2019-09-19 09:59:04.726] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-09-19 09:59:04.726] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/html-language-features/client/dist/htmlMain
+[2019-09-19 10:07:32.115] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:javascript"}
+[2019-09-19 10:07:32.115] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2019-09-19 10:07:32.412] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.vscode-typescript-tslint-plugin {"startup":false,"activationEvent":"onLanguage:javascript"}
+[2019-09-19 10:07:32.412] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ms-vscode.vscode-typescript-tslint-plugin-1.2.2/out/index.js
+[2019-09-19 10:07:32.726] [exthost] [info] ExtensionService#_doActivateExtension VisualStudioExptTeam.vscodeintellicode {"startup":false,"activationEvent":"onLanguage:javascript"}
+[2019-09-19 10:07:32.726] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/visualstudioexptteam.vscodeintellicode-1.1.9/dist/intellicode
+[2019-09-19 10:07:33.253] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-09-19 10:07:33.253] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/configuration-editing/dist/extension
+[2019-09-19 10:07:33.442] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-09-19 10:07:33.442] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2019-09-19 10:13:24.767] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"activationEvent":"onLanguage:typescript"}
+[2019-09-19 10:13:24.767] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/extension-editing/dist/extension

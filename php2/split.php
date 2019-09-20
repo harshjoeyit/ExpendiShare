@@ -39,11 +39,17 @@ if(isset($_POST['split'])){
     }
     
     if($execute_query){
-        echo "Data is inserted";
+        ?>
+        <script> window.alert('Splitting Done') </script>
+        <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+        <?php 
     }
     
     else{
-        echo "Data is not inserted";
+        e?>
+        <script> window.alert('Could NOt Split') </script>
+        <meta http-equiv="refresh" content="0; URL='dashboard.php'" /> 
+        <?php 
     }
     
 }

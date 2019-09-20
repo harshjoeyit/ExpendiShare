@@ -1,0 +1,3 @@
+[2019-09-18 14:03:29.182] [renderer1] [error] net::ERR_NAME_RESOLUTION_FAILED: Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-18 14:04:25.471] [renderer1] [error] net::ERR_NAME_RESOLUTION_FAILED: Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-18 14:04:33.677] [renderer1] [error] An unknown error occurred. Please consult the log for more details.

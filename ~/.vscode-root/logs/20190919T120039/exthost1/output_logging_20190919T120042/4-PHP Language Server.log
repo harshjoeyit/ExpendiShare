@@ -1,0 +1,46 @@
+DEBUG     Checking PHPLS_ALLOW_XDEBUG
+DEBUG     The xdebug extension is not loaded
+
+[Info  - 12:00:43 PM] 19 files total
+[Info  - 12:00:43 PM] Indexing project for definitions and static references
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/dashboard.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/logout.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/expense_disp.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/function.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/group.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/friends_display.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/signup.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/addfriends.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/login.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/split.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/update.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/upload_profile.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/account.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/search.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/test.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/insert_expnese.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/email_invite.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/update_grp.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/connect.php
+[Info  - 12:00:43 PM] Indexing project for dynamic references
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/dashboard.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/logout.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/expense_disp.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/function.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/group.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/friends_display.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/signup.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/addfriends.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/login.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/split.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/update.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/upload_profile.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/account.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/search.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/test.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/insert_expnese.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/email_invite.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/update_grp.php
+Parsing file:///opt/lampp/htdocs/ExpendiShare/php2/connect.php
+[Info  - 12:00:43 PM] 0 Packages
+[Info  - 12:00:43 PM] All 19 PHP files parsed in 0 seconds. 146 MiB allocated.

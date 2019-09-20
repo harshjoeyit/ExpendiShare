@@ -1,0 +1,52 @@
+[2019-09-18 14:03:30.215] [exthost] [info] extension host started
+[2019-09-18 14:03:30.262] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:30.262] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-09-18 14:03:30.445] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:30.445] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-09-18 14:03:30.650] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:30.650] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2019-09-18 14:03:30.830] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:30.830] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-09-18 14:03:30.913] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:30.914] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/coenraads.bracket-pair-colorizer-1.0.61/out/src/extension
+[2019-09-18 14:03:31.061] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:31.061] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/equinusocio.vsc-material-theme-30.0.0/out/src/material.theme.config
+[2019-09-18 14:03:31.286] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:31.286] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ms-vscode.cpptools-0.25.1/dist/main
+[2019-09-18 14:03:31.549] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:03:31.549] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/pkief.material-icon-theme-3.9.0/dist/extension
+[2019-09-18 14:03:31.604] [exthost] [info] eager extensions activated
+[2019-09-18 14:04:23.970] [exthost] [info] extension host started
+[2019-09-18 14:04:23.977] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:23.977] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2019-09-18 14:04:23.980] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:23.980] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/extension
+[2019-09-18 14:04:24.016] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:24.016] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2019-09-18 14:04:24.093] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:24.093] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/extension
+[2019-09-18 14:04:24.098] [exthost] [info] ExtensionService#_doActivateExtension CoenraadS.bracket-pair-colorizer {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:24.098] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/coenraads.bracket-pair-colorizer-1.0.61/out/src/extension
+[2019-09-18 14:04:24.110] [exthost] [info] ExtensionService#_doActivateExtension Equinusocio.vsc-material-theme {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:24.110] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/equinusocio.vsc-material-theme-30.0.0/out/src/material.theme.config
+[2019-09-18 14:04:24.115] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.cpptools {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:24.115] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ms-vscode.cpptools-0.25.1/dist/main
+[2019-09-18 14:04:24.251] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"activationEvent":"*"}
+[2019-09-18 14:04:24.251] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/pkief.material-icon-theme-3.9.0/dist/extension
+[2019-09-18 14:04:24.828] [exthost] [info] ExtensionService#_doActivateExtension felixfbecker.php-intellisense {"startup":true,"activationEvent":"workspaceContains:**/*.php"}
+[2019-09-18 14:04:24.829] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/felixfbecker.php-intellisense-2.3.10/out/extension
+[2019-09-18 14:04:25.258] [exthost] [info] eager extensions activated
+[2019-09-18 14:04:28.544] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-09-18 14:04:28.544] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/html-language-features/client/dist/htmlMain
+[2019-09-18 14:04:28.676] [exthost] [info] ExtensionService#_doActivateExtension ecmel.vscode-html-css {"startup":false,"activationEvent":"onLanguage:html"}
+[2019-09-18 14:04:28.676] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/harshit/.vscode/extensions/ecmel.vscode-html-css-0.2.3/dist/extension
+[2019-09-18 14:08:41.830] [exthost] [info] ExtensionService#_doActivateExtension vscode.configuration-editing {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-09-18 14:08:41.830] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/configuration-editing/dist/extension
+[2019-09-18 14:08:42.036] [exthost] [info] ExtensionService#_doActivateExtension vscode.json-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-09-18 14:08:42.037] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/json-language-features/client/dist/jsonMain
+[2019-09-18 14:08:42.249] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"activationEvent":"onLanguage:jsonc"}
+[2019-09-18 14:08:42.249] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/typescript-language-features/dist/extension
+[2019-09-18 14:12:33.826] [exthost] [info] ExtensionService#_doActivateExtension vscode.php-language-features {"startup":false,"activationEvent":"onLanguage:php"}
+[2019-09-18 14:12:33.826] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/php-language-features/dist/phpMain
+[2019-09-18 21:04:22.440] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"activationEvent":"onLanguage:css"}
+[2019-09-18 21:04:22.440] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/css-language-features/client/dist/cssMain

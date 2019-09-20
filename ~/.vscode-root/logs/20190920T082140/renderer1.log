@@ -1,0 +1,3 @@
+[2019-09-20 08:21:55.632] [renderer1] [warning] UNRESPONSIVE extension host, 'ritwickdey.LiveServer' took 99% of 1130.627ms, saved PROFILE here: '/tmp/exthost-ed17a0.cpuprofile' [{"id":"gc","total":5888,"percentage":1},{"id":"program","total":5942,"percentage":1},{"id":"ritwickdey.LiveServer","total":1114246,"percentage":99},{"id":"self","total":4263,"percentage":0}]
+[2019-09-20 08:21:56.205] [renderer1] [error] net::ERR_NAME_RESOLUTION_FAILED: Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-20 08:22:06.390] [renderer1] [error] An unknown error occurred. Please consult the log for more details.

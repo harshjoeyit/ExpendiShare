@@ -1,0 +1,30 @@
+[2019-09-19 12:00:39.648] [main] [info] update#setState idle
+[2019-09-19 12:01:09.650] [main] [info] update#setState checking for updates
+[2019-09-19 12:01:09.660] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 12:01:09.661] [main] [info] update#setState idle
+[2019-09-19 17:02:43.662] [main] [info] update#setState checking for updates
+[2019-09-19 17:02:43.678] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 17:02:43.679] [main] [info] update#setState idle
+[2019-09-19 18:02:43.688] [main] [info] update#setState checking for updates
+[2019-09-19 18:02:43.702] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 18:02:43.702] [main] [info] update#setState idle
+[2019-09-19 19:02:43.691] [main] [info] update#setState checking for updates
+[2019-09-19 19:02:43.706] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 19:02:43.706] [main] [info] update#setState idle
+[2019-09-19 20:02:43.719] [main] [info] update#setState checking for updates
+[2019-09-19 20:02:43.735] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 20:02:43.735] [main] [info] update#setState idle
+[2019-09-19 21:18:31.466] [main] [info] update#setState checking for updates
+[2019-09-19 21:18:31.484] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 21:18:31.484] [main] [info] update#setState idle
+[2019-09-19 22:18:31.495] [main] [info] update#setState checking for updates
+[2019-09-19 22:18:31.512] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 22:18:31.513] [main] [info] update#setState idle
+[2019-09-19 23:18:31.522] [main] [info] update#setState checking for updates
+[2019-09-19 23:18:31.540] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-19 23:18:31.540] [main] [info] update#setState idle
+[2019-09-20 00:18:31.547] [main] [info] update#setState checking for updates
+[2019-09-20 00:18:31.562] [main] [error] Error: net::ERR_NAME_RESOLUTION_FAILED
+[2019-09-20 00:18:31.562] [main] [info] update#setState idle
+[2019-09-20 01:18:31.558] [main] [info] update#setState checking for updates
+[2019-09-20 01:18:33.850] [main] [info] update#setState idle
