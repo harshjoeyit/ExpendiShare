@@ -1,0 +1,245 @@
+:root {
+  --txt-clr: #011627;
+  --clr-2: #DB3E55;
+  --clr-3: #ff9d9d;
+  --bg-clr: #ffeddf;
+  --clr-5: #FFFFFF;
+
+  --fnt-w-1 : 300;
+  --fnt-w-2 : 500;
+  --fnt-w-3 : 700;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--bg-clr);
+}
+
+header,
+footer {
+    background-color: var(--txt-clr);
+    text-align: center;
+    padding: 1em 0;
+}
+
+img {
+    width: 100%;
+    /* margin-top: 1em; */
+}
+
+/* -------------------------------
+            Typography
+-----------------------------------*/
+.logo {
+    
+    color: var(--clr-5);
+    font-size: 2rem;
+    margin: 0;
+}
+
+.tagline {
+    color: var(--clr-3);
+    margin: 0;
+}
+
+.widget-title {
+    text-transform: uppercase;
+}
+
+
+
+/* -------------------------------
+            Layout
+-----------------------------------*/
+
+.flex {
+    display: flex;
+}
+
+.container {
+    width: 95%;
+    max-width: 980px;
+    margin: 1em auto;
+}
+.main {
+    min-height: 710px;
+    width: 50%;
+    border-right: 1px solid var(--clr-3);
+    border-left: 1px solid var(--clr-3);
+    margin-left: 1em;
+    margin-right: 1em;
+
+}
+aside {
+    width: 22.5%;
+    min-width: 200px;
+    border-right: 1px solid var(--clr-3);
+}
+
+.btn {
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.7rem;
+    border: 1px solid var(--clr-4);
+    color: var(--clr-5);
+    background: var(--clr-2);
+    padding: 0.7em 1.3em;
+}
+
+.row {
+    display: flex;
+    margin: 1em 0;
+    justify-content: space-between;
+    align-items: center;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.intro-img {
+    border-radius: 2em 0 0 2em;
+    width: 50%;
+}
+
+.right {
+    float: right;
+}
+
+.form {
+    width: 60%;
+    margin: 10% auto;
+    border: 1px solid var(--txt-clr);
+    padding: 1em 1.25em;
+}
+
+.form-field {
+    position: relative;
+    border: 1px solid var(--txt-clr);
+    padding: 1.2em 0;
+    margin: 1.25em 0;
+}
+.form-field:nth-of-type(1) {
+    margin: 0 0 1.25em;
+}
+
+.form-field:last-of-type {
+    margin: 1.25em 0 0;
+}
+.form-field > label {
+    position: absolute;
+    top: 0;
+    transform: translate(0.6em, -50%);
+    background-color: var(--bg-clr);
+    padding: 0 0.4em;
+}
+
+.form-field > input {
+    background-color: var(--bg-clr);
+    border: 1px solid var(--txt-clr);
+    padding: 0.5em 1%;
+    color: var(--txt-clr);
+    width: 92%;
+    margin: 0 3%;
+}
+
+.form-field > input:focus {
+    outline: none;
+}
+.form-field > p {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1em;
+    width: 94%;
+    margin: 0 3%;
+    transform: translateY(2.5px);
+    display: none;
+}
+
+.intro > .row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.intro > .row:nth-child(even) > .intro-img {
+    border-radius: 0 2em 2em 0;
+}
+.sidebar-widget {
+    border: 1em solid var(--clr-3);
+    margin-bottom: 2em;
+    padding: 1em;
+}
+.widget-field {
+    margin: 0 auto;
+}
+.widget-field > label {
+    
+}
+.widget-field > input {
+    width: 100%;
+    padding: 0.4em 0;
+    background-color: var(--bg-clr);
+    border: 1px solid var(--txt-clr);
+    border-radius: 0.2em;
+
+}
+
+/* -------------------------------
+            Navigation
+-----------------------------------*/
+.navbar {
+    justify-content: space-between;
+}
+
+nav ul{
+    list-style: none;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+nav li {
+    margin: 0 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--clr-5);
+    letter-spacing: 1px;
+}
+
+
+/* -------------------------------
+            Responsive 
+-----------------------------------*/
+
+@media (max-width: 675px) {
+    .flex,
+    .row {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .main, aside {
+        width: 100%;
+    }
+
+    .intro > .row:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .intro-img,
+    .intro > .row:nth-child(even) > .intro-img {
+        border-radius: 2em 2em 2em 2em;
+    }
+    nav ul {
+        padding: 0;
+    }
+
+    nav li {
+        margin: 1em auto;
+    }
+    .form-field {
+        padding: 1em 0;
+    }
+}
