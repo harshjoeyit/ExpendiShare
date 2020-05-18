@@ -12,8 +12,8 @@
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'tls';
 
-        $mail->Username = 'amantibrewal310@gmail.com';
-        $mail->Password = 'Lucky.3101998';
+        $mail->Username = '';
+        $mail->Password = '';
 
         $mail->setFrom('amantibrewal310@gmail.com', 'ExpendiShare');
         $mail->addAddress($email);
