@@ -7,8 +7,8 @@ class config {
         $this->host = "localhost";
         $this->mysql_user = "root";
         $this->mysql_passwd = "";
-        $this->mysql_dbName = "ExpendiShare2";
-        $this->baseServer = "/ExpendiShare2/";
+        $this->mysql_dbName = "ExpendiShare";
+        $this->baseServer = "/ExpendiShare/";
         date_default_timezone_set('Asia/Kolkata');
     }
 }

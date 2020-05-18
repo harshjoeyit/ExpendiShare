@@ -1,7 +1,7 @@
 <?php
     include_once('class.misc.php');
     $misc = new misc();
-    $connect = mysqli_connect("localhost", "root", "", "ExpendiShare2");
+    $connect = mysqli_connect("localhost", "root", "", "ExpendiShare");
     // if($connect) {
     //     echo "connection estabilished";
     // }
