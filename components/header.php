@@ -17,10 +17,31 @@
             
             <nav>
                 <ul class="flex">
+                    <?php
+                        if(isset($_SESSION['user'])) {
+                    ?>
+                    <li><a href="#"><?php echo $_SESSION['user']; ?></a></li>
+                    <?php
+                        } else {
+                    ?>
                     <li><a href="/ExpendiShare/">Home</a></li>
+
+                    <?php
+                        }
+                    ?>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
+                    <?php
+                        if(isset($_SESSION['user'])) {
+                    ?>
+                    <li><a href="logout.php" class="btn">Logout</a></li>
+                    <?php
+                        } else {
+                    ?>
                     <li><a href="login.php" class="btn">Login</a></li>
+                    <?php
+                        }
+                    ?>
 
                 </ul>
             </nav>

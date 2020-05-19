@@ -26,6 +26,27 @@
     </section>
 </div>
 
+<script src = "./js/login.js"></script>
+<script>
+    $(document).ready(function() {
+        $('input[name="username"]').on("keyup", function(e) {
+            check(e);
+        });
+
+        $('#login-btn').on('click', function() {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            logIn(username, password);
+
+        });
+        $('form-field').keypress(function(e) {
+            if(e.which == 13) {
+                $('#login-btn').click();
+            }
+        });
+    });
+</script>
+
 <?php
     include_once('components/footer.php');
 ?>

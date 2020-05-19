@@ -106,7 +106,7 @@ function makeAccount(username, name, email, password) {
     });
     var timer = setTimeout(function() {
         window.location='./index.php'
-    }, 3000);
+    }, 10000);
     // location.reload(true);
 }
 
