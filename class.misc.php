@@ -188,5 +188,17 @@ class misc {
         return $result;
 
     }
+
+    public function displayFriends($username) {
+        $username = $this->sql->escape($username);
+        
+        $result = $this->sql->getDistinctDatas('friendname', 'friends', 'username', $username);
+        $result2 = $this->sql->getDistinctDatas('username', 'friends', 'friendname', $username);
+
+        foreach($result2 as &$name) {
+            array_push($result, $name);
+        }
+        return $result;
+    }
 }
 ?>

@@ -85,6 +85,18 @@
         }
     }
 
+    if(isset($_POST["display"])) {
+        $username = $_POST['display'];
+
+        $result['friends'] = $misc->displayFriends($username);
+
+        if(count($friends) == 0) {
+            $result['msg'] = "Add some friends";
+        }
+
+        echo json_encode($result);
+    }
+
     
 
 ?>

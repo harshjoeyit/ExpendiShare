@@ -8,9 +8,10 @@
     <!-- Left Sidebar-->
     <aside class="sidebar">
         <h2>Your Friends</h2>
-        <div id="display">
+        <div id="display-friends">
         </div>
     </aside>
+    
 
     <!-- Main container -->
     <section class="main">
@@ -64,9 +65,13 @@
             
         </aside>
 </div>
-
+<script src = "./js/dashboard.js"></script>
 <script>
     $(document).ready(function() {
+        var username = "<?php echo $_SESSION['user']; ?>";
+
+        displayFriends(username);
+
         $('#add-expense').hide();
         $('#add-expense-btn').click(function () {
             $('#add-expense').toggle();

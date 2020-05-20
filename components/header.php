@@ -20,7 +20,7 @@
                     <?php
                         if(isset($_SESSION['user'])) {
                     ?>
-                    <li><a href="#"><?php echo $_SESSION['user']; ?></a></li>
+                    <li><a id = "user-profile" href="#"><?php echo $_SESSION['user']; ?></a></li>
                     <?php
                         } else {
                     ?>
