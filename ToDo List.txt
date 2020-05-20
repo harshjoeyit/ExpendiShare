@@ -1,0 +1,17 @@
+Dashboard- profile view option - a dropdown or any other suitable.
+Addition of password eye button.
+Implementation of Search box for users.
+Implementation of invite via email.
+Tags for expense.[Table]
+Mobile responsive navbar
+
+
+- Find how to store credential safely :
+    ~ We can find a way to not push credential file by using gitignore
+    ~ We can find the way to store data in environment variable
+
+- Implementation of sending text message using TWILIO :
+    ~ Source : TWILIO official video on youtube
+
+- Creation of User Profile pages
+
