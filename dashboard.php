@@ -79,6 +79,11 @@
         $('#add-expense-btn').click(function () {
             $('#add-expense').toggle();
         });
+        $('#add').on('click', function() {
+            var friend = $('input[name="friend"]').val();
+            console.log(friend);
+            addFriend(username, friend);
+        });
     });
     
 </script>

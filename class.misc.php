@@ -100,7 +100,7 @@ class misc {
         $password = md5($password);
         $username = strtolower($username);
 
-        // blank errors handling
+        // !blank errors handling
         if($username == ''){
             $result['status'] = -1;
             $result['errorField'] = 'username';
@@ -124,7 +124,7 @@ class misc {
             $result['errorMsg'] = 'Password cannot be blank'; return $result;
         }
 
-        // content correctness
+        // !content correctness
         if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $username)){
             $result['status'] = -1;
             $result['errorField'] = 'username';
@@ -193,15 +193,55 @@ class misc {
         $username = $this->sql->escape($username);
         
         $result = $this->sql->getDistinctDatas('friendname', 'friends', 'username', $username);
-        $result2 = $this->sql->getDistinctDatas('username', 'friends', 'friendname', $username);
+        // $result2 = $this->sql->getDistinctDatas('username', 'friends', 'friendname', $username);
 
-        foreach($result2 as &$name) {
-            array_push($result, $name);
-        }
+        // foreach($result2 as &$name) {
+        //     array_push($result, $name);
+        // }
         return $result;
     }
     
+    public function addFriend($username, $friend) {
+        $username = $this->sql->escape($username);
+        $friend = $this->sql->escape($friend);
 
+        // !Blank Errors
+        if($friend == '') {
+            $result['status'] = 0;
+            $result['errorMsg'] = "Friend Name cannot be blank";
+            return $result;
+        }
+
+        //!Correctness checking
+        if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $friend)){
+            $result['status'] = 0;
+            $result['errorMsg'] = 'Invalid Name';
+            return $result;
+        }
+        // !check if friend already exists
+        if($this->sql->countData('friends', 'username', $username, 'friendname', $friend) == 1) {
+            $result['status'] = -1;
+            return $result;
+        }
+        if($this->sql->countData('friends', 'username', $friend, 'friendname', $username) == 1) {
+            $result['status'] = -1;
+            return $result;
+        }
+
+        try {
+            $this->sql->query = "INSERT INTO `friends` (username,friendname) values('$username', '$friend')";
+            $this->sql->process();
+            $this->sql->query = "INSERT INTO `friends` (username,friendname) values('$friend', '$username')";
+            $this->sql->process();
+
+        } catch(Exception $e) {
+            $result['status'] = 0;
+            return $result;
+        }
+        
+        $result['status'] = 1;
+        return $result;
+    }
     
 }
 ?>

@@ -84,6 +84,25 @@
                 $result['msg'] = "Username Invalid";
             }
             echo json_encode($result);
+        } else if($_POST['action'] == 'addFriend') {
+            $username = $_POST['username'];
+            $friend = $_POST['friend'];
+
+            $check = $misc->addFriend($username, $friend);
+
+            if($check['status'] == 1) {
+                $result['status'] = 1;
+                $result['msg'] = "Friend added succesfully";
+            } else if($check['status'] == 0) {
+                $result['status'] = 0;
+                $result['msg'] = "Sorry, Could not add friend";
+                $result['errorMsg'] = $check['errorMsg'];
+            } else if($check['status'] == -1) {
+                $result['status'] = -1;
+                $result['msg'] = "Friend already added";
+            }
+
+            echo json_encode($result);
         }
     }
 
