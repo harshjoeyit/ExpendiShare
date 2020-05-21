@@ -3,6 +3,8 @@
     session_start();
     header('Content-Type: application/json');
     include_once('class.misc.php');
+    include_once('class.sql.php');
+    $sql = new sql();
     $misc = new misc();
     $result = [];
 
@@ -86,15 +88,29 @@
     }
 
     if(isset($_POST["display"])) {
-        $username = $_POST['display'];
+        $username = $sql->escape($_POST['display']);
+        
 
         $result['friends'] = $misc->displayFriends($username);
 
-        if(count($friends) == 0) {
+        if(count($result['friends']) == 0) {
             $result['msg'] = "Add some friends";
         }
 
         echo json_encode($result);
+    }
+    if(isset($_POST['search'])) {
+        $search = $sql->escape($_POST["search"]);
+        $data = $sql->searchData('users', 'username', 'username', $search);
+        if(count($data) == 0) {
+            $result['status'] = 0;
+            $result['msg'] = "No user found";
+        } else {
+            $result['status'] = 1;
+            $result['users'] = $data;
+        }
+        echo json_encode($result);
+
     }
 
     

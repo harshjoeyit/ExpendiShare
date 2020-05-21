@@ -54,6 +54,16 @@ class sql extends config {
         return mysqli_num_rows($result);
     }
 
+    public function searchData($table,$column_name, $field, $data) {
+        $this->query = "SELECT * FROM $table WHERE $field LIKE '%".$data."%'";
+        $result = $this->process();
+        $rows = [];
+        while($row = mysqli_fetch_assoc($result)) {
+            array_push($rows, $row[$column_name]);
+        }
+        return $rows;
+    }
+
     public function escape($string) {
         return mysqli_real_escape_string($this->link, $string);
     }

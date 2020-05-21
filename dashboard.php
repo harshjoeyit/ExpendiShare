@@ -7,9 +7,11 @@
 
     <!-- Left Sidebar-->
     <aside class="sidebar">
-        <h2>Your Friends</h2>
-        <div id="display-friends">
+        <div class="sidebar-widget">
+            <h2 class="widget-title">Your Friends</h2>
+            <div id="display-friends"></div>
         </div>
+        
     </aside>
     
 
@@ -71,6 +73,7 @@
         var username = "<?php echo $_SESSION['user']; ?>";
 
         displayFriends(username);
+        liveSearch();
 
         $('#add-expense').hide();
         $('#add-expense-btn').click(function () {
