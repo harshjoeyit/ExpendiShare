@@ -111,6 +111,8 @@ function addFriend(username, friend) {
                 displayFriends(username);
             } else if(data.status == 0) {
                 successMessage.css('color', 'red');
+            } else if(data.staus == -2) {
+                successMessage.css('color', 'red');
             } else {
                 successMessage.css('color', 'orange');
             }

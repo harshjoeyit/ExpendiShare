@@ -204,6 +204,11 @@ class misc {
     public function addFriend($username, $friend) {
         $username = $this->sql->escape($username);
         $friend = $this->sql->escape($friend);
+        if($username == $friend) {
+            $result['status'] = -2;
+            $result['errorMsg'] = "You can't be friend of yourself";
+            return $result; 
+        }
 
         // !Blank Errors
         if($friend == '') {

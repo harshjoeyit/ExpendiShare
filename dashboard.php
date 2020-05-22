@@ -28,14 +28,23 @@
                 <div class="form-field col">
                     <label> Amount </label>
                     <input type="number" name="amount" id="amountBox" max-length="10" required>
-                    <span><input type="radio" name="splittype" value="youpaidsplitequally">You paid, Split equally</span>
-                    <span><input type="radio" name="splittype" value="friendpaidsplitequally">Friend paid, Split equally</span>
-                    <span><input type="radio" name="splittype" value="friendowecomplete">Friend owes complete amount</span>
-                    <span><input type="radio" name="splittype" value="youowecomplete">You owe complete amount</span>
                 </div> <br>
-                <div class="form-field">
+                <div class="form-field select">
+                    <label>Select Expense Type</label>
+                    <select>
+                        <option name="splittype" selected value="selectexpensetype" disabled>Select Expense Type</option>
+                        <option name="splittype" value="youpaidsplitequally">You paid, Split equally</option>
+                        <option name="splittype" value="friendpaidsplitequally">Friend paid, Split equally</option>
+                        <option name="splittype" value="friendowecomplete">Friend owes complete amount</option>
+                        <option name="splittype" value="youowecomplete">You owe complete amount</option>
+                    </select>
+                </div><br>
+                    
+                <div class="form-field select">
                     <label> Category </label>
-                    <input type="text" name="category" id="categoryBox" max-length="50" size="50" required>
+                    <!-- <input type="text" name="category" id="categoryBox" max-length="50" size="50" required> -->
+                    <option name="splittype" value="youpaidsplitequally">You paid, Split equally</option>
+
                 </div><br>
                 <div class="form-field">
                     <label> Description </label>
@@ -75,10 +84,10 @@
         displayFriends(username);
         liveSearch();
 
-        $('#add-expense').hide();
-        $('#add-expense-btn').click(function () {
-            $('#add-expense').toggle();
-        });
+        // $('#add-expense').hide();
+        // $('#add-expense-btn').click(function () {
+        //     $('#add-expense').toggle();
+        // });
         $('#add').on('click', function() {
             var friend = $('input[name="friend"]').val();
             console.log(friend);

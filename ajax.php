@@ -100,6 +100,9 @@
             } else if($check['status'] == -1) {
                 $result['status'] = -1;
                 $result['msg'] = "Friend already added";
+            } else {
+                $result['status'] = -2;
+                $result['msg'] = "You can't be friend of yourself";
             }
 
             echo json_encode($result);
