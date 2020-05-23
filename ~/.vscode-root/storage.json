@@ -94,11 +94,13 @@
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As..."
+                        "label": "Save &&As...",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.files.saveAll",
-                        "label": "Save A&&ll"
+                        "label": "Save A&&ll",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -287,6 +289,10 @@
                         "label": "Move &&Line Down"
                     },
                     {
+                        "id": "editor.action.duplicateSelection",
+                        "label": "&&Duplicate Selection"
+                    },
+                    {
                         "id": "vscode.menubar.separator"
                     },
                     {
@@ -359,8 +365,7 @@
                                 },
                                 {
                                     "id": "workbench.action.toggleSidebarVisibility",
-                                    "label": "Show &&Side Bar",
-                                    "checked": true
+                                    "label": "Show &&Side Bar"
                                 },
                                 {
                                     "id": "workbench.action.toggleStatusbarVisibility",
@@ -370,6 +375,11 @@
                                 {
                                     "id": "workbench.action.toggleActivityBarVisibility",
                                     "label": "Show &&Activity Bar",
+                                    "checked": true
+                                },
+                                {
+                                    "id": "workbench.action.toggleEditorVisibility",
+                                    "label": "Show &&Editor Area",
                                     "checked": true
                                 },
                                 {
@@ -544,7 +554,8 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back"
+                        "label": "&&Back",
+                        "enabled": false
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -553,7 +564,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -662,8 +674,12 @@
                         "label": "Go to &&Symbol in File..."
                     },
                     {
-                        "id": "editor.action.goToDeclaration",
+                        "id": "editor.action.revealDefinition",
                         "label": "Go to &&Definition"
+                    },
+                    {
+                        "id": "editor.action.revealDeclaration",
+                        "label": "Go to &&Declaration"
                     },
                     {
                         "id": "editor.action.goToTypeDefinition",
@@ -671,7 +687,11 @@
                     },
                     {
                         "id": "editor.action.goToImplementation",
-                        "label": "Go to &&Implementation"
+                        "label": "Go to &&Implementations"
+                    },
+                    {
+                        "id": "editor.action.goToReferences",
+                        "label": "Go to &&References"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -716,7 +736,7 @@
                     },
                     {
                         "id": "workbench.action.debug.run",
-                        "label": "Start &&Without Debugging"
+                        "label": "Run &&Without Debugging"
                     },
                     {
                         "id": "workbench.action.debug.stop",
@@ -994,7 +1014,6 @@
             },
             "workbench.action.openSettings": {
                 "label": "Ctrl+,",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+,"
             },
             "workbench.view.extensions": {
@@ -1071,7 +1090,6 @@
             },
             "editor.action.commentLine": {
                 "label": "Ctrl+/",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+/"
             },
             "editor.action.blockComment": {
@@ -1153,12 +1171,10 @@
             },
             "workbench.action.zoomIn": {
                 "label": "Ctrl+=",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+="
             },
             "workbench.action.zoomOut": {
                 "label": "Ctrl+-",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+-"
             },
             "workbench.action.zoomReset": {
@@ -1197,7 +1213,6 @@
             },
             "workbench.action.terminal.toggleTerminal": {
                 "label": "Ctrl+`",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+`"
             },
             "workbench.actions.view.problems": {
@@ -1210,12 +1225,10 @@
             },
             "workbench.action.navigateBack": {
                 "label": "Ctrl+Alt+-",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+alt+-"
             },
             "workbench.action.navigateForward": {
                 "label": "Ctrl+Shift+-",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+shift+-"
             },
             "workbench.action.navigateToLastEditLocation": {
@@ -1291,9 +1304,17 @@
                 "label": "Ctrl+Shift+O",
                 "userSettingsLabel": "ctrl+shift+o"
             },
+            "editor.action.revealDefinition": {
+                "label": "F12",
+                "userSettingsLabel": "f12"
+            },
             "editor.action.goToImplementation": {
                 "label": "Ctrl+F12",
                 "userSettingsLabel": "ctrl+f12"
+            },
+            "editor.action.goToReferences": {
+                "label": "Shift+F12",
+                "userSettingsLabel": "shift+f12"
             },
             "workbench.action.gotoLine": {
                 "label": "Ctrl+G",
@@ -1301,7 +1322,6 @@
             },
             "editor.action.jumpToBracket": {
                 "label": "Ctrl+Shift+\\",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+shift+\\"
             },
             "editor.action.marker.nextInFiles": {
@@ -1362,7 +1382,6 @@
             },
             "workbench.action.terminal.new": {
                 "label": "Ctrl+Shift+`",
-                "isNative": false,
                 "userSettingsLabel": "ctrl+shift+`"
             },
             "workbench.action.terminal.split": {
@@ -1385,7 +1404,7 @@
         }
     },
     "theme": "vs-dark",
-    "themeBackground": "#263238",
+    "themeBackground": "#1e1e1e",
     "pickerWorkingDir": "/opt/lampp/htdocs",
     "windowsState": {
         "lastActiveWindow": {

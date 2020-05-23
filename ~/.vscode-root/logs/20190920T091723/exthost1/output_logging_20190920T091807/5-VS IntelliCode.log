@@ -1,0 +1,6 @@
+Acquiring model 'intellisense-members' for javascript
+Querying IntelliCode service for available models.
+Couldn't reach service Error Message: getaddrinfo EAI_AGAIN prod.intellicode.vsengsaas.visualstudio.com prod.intellicode.vsengsaas.visualstudio.com:443, (Error)
+Could not reach the IntelliCode service. Checking the local model cache.
+None of the cached models match.
+Couldn't download IntelliCode model. Please check your network connectivity or firewall settings. Error Message: getaddrinfo EAI_AGAIN prod.intellicode.vsengsaas.visualstudio.com prod.intellicode.vsengsaas.visualstudio.com:443, (Error)
