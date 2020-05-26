@@ -128,3 +128,58 @@ function addFriend(username, friend) {
         }
     });
 }
+
+function displayFriendsInExpenseForm(username) {
+    $.ajax({
+        url: "ajax.php",
+        method: "POST",
+        dataType: "json",
+        data: {'display' : username},
+        success: function(data) {
+            console.log("Display friends data recieved");
+            // console.log(data);
+            var html = "";
+            for(var i = 0; i < data['friends'].length; i++) {
+                html += "<input name='withfriends' type='checkbox' value='" + data['friends'][i] + "'>" + data['friends'][i] + 
+                "</input>" + "<br>"
+            }
+            
+            html += '<button type="submit" id="select-frnds-btn" class="btn">Save</button>';
+            $('#select-frnd-content').html(html);
+
+        },
+        error: function(error, status) {
+            console.log(status);
+            // console.log(error);
+        }
+    });
+}
+
+function displaySplitingTypes() {
+    $.ajax({
+        url : "ajax.php",
+        method: "POST",
+        data: {'action' : 'displaySplitingTypes'},
+        dataType: "json",
+        success: function(data) {
+            // console.log(data);
+            var html = "";
+            // console.log(data[0]);
+            for(var i = 0; i < data.length; i++) {
+                html +=
+                "<option name='splittype' value='" + data[i]['spliting_type_id'] + "'>" + data[i]['spliting_type_name'] + "</option>";
+            }
+            $('#select-split-type').html(html);
+        },
+        error: function(error, status) {
+            console.log(status);
+        }
+    });
+}
+
+$(function(){
+    $('#select-split-type').change(function() {
+        var splitType = $('#select-split-type option:selected').val();
+        console.log(splitType);
+    });
+});

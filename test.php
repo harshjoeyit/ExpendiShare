@@ -27,15 +27,19 @@ $sql = new sql();
 // $data = sendmail('amantibrewal03@gmail.com', 'Hello');
 // print_r($data);
 
-$result = $sql->searchData('users', 'username', 'username', 'a');
-print_r($result);
-$res = $misc->displayFriends('aman');
-print_r($res);
-$username = 'aman';
-$friend = 'fireplayer2020';
-$sql->query = "INSERT INTO `friends` (username,friendname) values('$username', '$friend')";
-$sql->process();
-$sql->query = "INSERT INTO `friends` (username,friendname) values('$friend', '$username')";
-$sql->process();
+// $result = $sql->searchData('users', 'username', 'username', 'a');
+// print_r($result);
+// $res = $misc->displayFriends('aman');
+// print_r($res);
+// $username = 'aman';
+// $friend = 'fireplayer2020';
+// $sql->query = "INSERT INTO `friends` (username,friendname) values('$username', '$friend')";
+// $sql->process();
+// $sql->query = "INSERT INTO `friends` (username,friendname) values('$friend', '$username')";
+// $sql->process();
+
+$sql->query = "SELECT * FROM category";
+$result = $sql->process();
+print_r(mysqli_fetch_all($result));
 
 ?>

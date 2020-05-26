@@ -247,6 +247,13 @@ class misc {
         $result['status'] = 1;
         return $result;
     }
+
+    public function getExpenseCategory() {
+        $this->sql->query = "SELECT * FROM category";
+        $result = $this->sql->process();
+        $rows = mysqli_fetch_all($result);
+        return $rows;
+    }
     
 }
 ?>

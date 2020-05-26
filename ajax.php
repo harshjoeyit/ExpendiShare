@@ -106,6 +106,9 @@
             }
 
             echo json_encode($result);
+        } else if($_POST['action'] == 'displaySplitingTypes') {
+            $data = $sql->getDatas('spliting_types');
+            echo json_encode($data);
         }
     }
 
