@@ -64,6 +64,11 @@
                     <select id = "select-split-type">
                     </select>
                 </div><br>
+                <div class="form-field select friendpaid" style="display: none;">
+                    <label>Who paid</label>
+                    <select id = "whopaid">
+                    </select>
+                </div>
 
                 <div class="form-field col">
                     <label> Amount </label>
@@ -129,6 +134,7 @@
 
         displayFriends(username);
         liveSearch();
+        spliting();
 
         $('#add-expense').hide();
         $('.show-expense').hide();
@@ -150,58 +156,10 @@
             console.log(friend);
             addFriend(username, friend);
         });
-        
-
-        $('#chose-frnd-btn').on('click', function() {
-            $('#modal').show();
-            var type = $('.select-expense-type option:selected').val();
-            if(type == 1) {
-                displayFriendsInExpenseForm(username);
-                $(document).on('click','#select-frnds-btn', function(){
-                    console.log("Selected data retrived");
-                    var friends = [];
-                    var html = "";
-                    $("#select-frnd-content input[type='checkbox']").each(function() {
-                        var member = $(this);
-                        if(member.is(":checked")) {
-                            // console.log(member.val());
-                            html += "<li>" + member.val() + "</li>";
-                            friends.push(member.val());
-                        }
-                    });
-                    $('#modal').hide();
-                    $('#membersname').html(html);
-                    console.log(friends);
-                });
-            }
-        });
-        
+    
         $('#close-btn').on('click', function() {
             $('#modal').hide();
-        });
-
-        
-
-        $('#split').on('click', function() {
-            var expenseType = $('.select-expense-type option:selected').val();
-            var splitType = $('#select-split-type option:selected').val();
-            var amount = $('#amountBox').val();
-            var expenseCategory = $('.select-expense-category option:selected').data('id');
-            var description = $('input[name="description"]').val();
-            
-            console.log(expenseType);
-            console.log(splitType);
-            console.log(amount);
-            console.log(expenseCategory);
-            console.log(description);
-
-            if(expenseType == 1) {
-
-            }
-
-        });
-        
-        
+        });        
     });
     
 </script>

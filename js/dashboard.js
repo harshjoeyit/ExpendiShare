@@ -163,7 +163,7 @@ function displaySplitingTypes() {
         dataType: "json",
         success: function(data) {
             // console.log(data);
-            var html = "";
+            var html = "<option name='splittype' value='0' selected disabled>Select the spliting type</option>";
             // console.log(data[0]);
             for(var i = 0; i < data.length; i++) {
                 html +=
@@ -177,9 +177,111 @@ function displaySplitingTypes() {
     });
 }
 
-$(function(){
-    $('#select-split-type').change(function() {
-        var splitType = $('#select-split-type option:selected').val();
-        console.log(splitType);
+/*-----------------------------ADD EXPENSE --------------------- */
+
+function addExpense(username, expenseType, splitType, friends, amount, category, description, whoPaid) {
+
+    var data;
+    console.log(friends);
+    // Individual Expenses
+    if(expenseType == 1) {
+        data = {
+            'action': 'addIndividualExpense',
+            'username' : username,
+            'splitType' : splitType,
+            'members' : friends,
+            'amount' : amount,
+            'description' : description,
+            'category' : category,
+            'whoPaid' : whoPaid
+        };
+    }
+
+    $.ajax({
+        url: 'ajax.php',
+        dataType: 'json',
+        data : data,
+        method: 'POST',
+        success: function(data) {
+            console.log("succes");
+            console.log(data);
+        },
+        error: function(error, status) {
+            console.log(status);
+            console.log(error);
+        }
     });
-});
+}
+
+
+function spliting() {
+    var friends = [];
+
+    $('#chose-frnd-btn').on('click', function() {
+        $('#modal').show();
+        var type = $('.select-expense-type option:selected').val();
+        if(type == 1) {
+            displayFriendsInExpenseForm(username);
+            $(document).on('click','#select-frnds-btn', function(){
+                console.log("Selected data retrived");
+                var html = "";
+                $("#select-frnd-content input[type='checkbox']").each(function() {
+                    var member = $(this);
+                    if(member.is(":checked")) {
+                        // console.log(member.val());
+                        html += "<li>" + member.val() + "</li>";
+                        friends.push(member.val());
+                    }
+                });
+                $('#modal').hide();
+                $('#membersname').html(html);
+                console.log(friends);
+            });
+        }
+    });
+    
+    $(function(){
+        $('#select-split-type').change(function() {
+            var splitType = $('#select-split-type option:selected').val();
+            console.log(splitType);
+            if(splitType == 1) {
+                $('.friendpaid').hide();
+            } else if(splitType == 2 && friends.length >= 2) {
+                
+                $('.friendpaid').show();
+                var html = "";
+                for(var i = 0; i < friends.length; i++) {
+                    html +="<option name='friendpaid'>"+ friends[i]+"</option>" 
+                }
+                $('#whopaid').html(html);
+            } else {
+                $('.friendpaid').hide();
+            }
+        });
+    });
+
+    $('#split').on('click', function() {
+        var expenseType = $('.select-expense-type option:selected').val();
+        var splitType = $('#select-split-type option:selected').val();
+        var amount = $('#amountBox').val();
+        var expenseCategory = $('.select-expense-category option:selected').data('id');
+        var description = $('input[name="description"]').val();
+        var whoPaid = username;
+
+        if(splitType == 2) {
+            whoPaid = $('#whopaid option:selected').val();
+        }
+        
+        console.log(expenseType);
+        console.log(splitType);
+        console.log(amount);
+        console.log(expenseCategory);
+        console.log(description);
+        console.log(whoPaid);
+
+        addExpense(username, expenseType, splitType, friends, amount, expenseCategory, description, whoPaid) 
+
+    });
+}
+
+

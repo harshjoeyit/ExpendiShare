@@ -38,8 +38,22 @@ $sql = new sql();
 // $sql->query = "INSERT INTO `friends` (username,friendname) values('$friend', '$username')";
 // $sql->process();
 
-$sql->query = "SELECT * FROM category";
-$result = $sql->process();
-print_r(mysqli_fetch_all($result));
+// $friend = ['aman', 'harshit'];
+// print_r($friend);
+
+// $whoPaid = 'harshit';
+// $amount = 100;
+// $owedAmount = 33;
+// $category = 2;
+// $description = "Test";
+// $todays_date = date('Y-m-d H:i:s');
+
+
+// for($i = 0; $i < count($friend); $i++) {
+//     $sql->query = "INSERT INTO expense(paidBy,owedBy, paidAmount, owedAmount, category, description, date, type) values ('$whoPaid', '$friend[$i]', '$amount', '$owedAmount', '$category', '$description', '$todays_date', 1)";
+//     $sql->process();
+// }
+
+print_r(data);
 
 ?>

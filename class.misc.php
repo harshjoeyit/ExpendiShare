@@ -254,6 +254,56 @@ class misc {
         $rows = mysqli_fetch_all($result);
         return $rows;
     }
+
+    public function addIndividualExpense($username, $friend, $splitType, $amount, $category, $description, $whoPaid) {
+        $amount = $this->sql->escape($amount);
+        $description = $this->sql->escape($description);
+        $todays_date = date('Y-m-d H:i:s');
+
+        // check amount
+        if($amount <= 0) {
+            $result['status'] = -1;
+            $result['msg'] = "Amount is improper!";
+            return $result;
+        }
+
+         // add check for invalid characters 
+        // category and description
+        if(strcmp($category, "") == 0 || strcmp($description, "") == 0) {
+            $result['status'] = -1;
+            $result['msg'] = "Category or description not filled!";
+            return $result;
+        }
+
+        $owedAmount = $amount;
+        if($splitType == 1 || $splitType == 2) {
+            $owedAmount = $owedAmount / (count($friend) + 1);
+        } else if($splitType == 3) {
+            $owedAmount = $owedAmount / count($friend);
+        }
+
+        try {
+            for($i = 0; $i < count($friend); $i++) {
+                if($whoPaid == $friend[$i])
+                    continue;
+                $this->sql->query = "INSERT INTO expense(paidBy,owedBy, paidAmount, owedAmount, category, description, date, type) values ('$whoPaid', '$friend[$i]', '$amount', '$owedAmount', '$category', '$description', '$todays_date', 1)";
+                $this->sql->process();
+            }
+            // if($whoPaid != $username)
+
+            
+        } catch(Exception $e) {
+            $result['status'] = -1;
+            $result['mg'] = "Some server error!";
+            return $result;
+        }
+
+        $result['status'] = 1;
+        $result['msg'] = "Split Done!";
+        return $result;
+
+    }
+
     
 }
 ?>

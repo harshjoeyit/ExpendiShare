@@ -109,6 +109,23 @@
         } else if($_POST['action'] == 'displaySplitingTypes') {
             $data = $sql->getDatas('spliting_types');
             echo json_encode($data);
+        } else if($_POST['action'] == 'addIndividualExpense') {
+            $username = $_POST['username'];
+            $whoPaid = $_POST['whoPaid'];
+            $members = $_POST['members'];
+            $splitType = $_POST['splitType'];
+            $amount = $_POST['amount'];
+            $category = $_POST['category'];
+            $description = $_POST['description'];
+            
+
+            $check = $misc->addIndividualExpense($username, $members, $splitType, $amount, $category, $description, $whoPaid);
+
+
+            $result['success'] = $check['status'];
+            $result['msg'] = $check['msg'];
+            echo json_encode($result);
+
         }
     }
 
