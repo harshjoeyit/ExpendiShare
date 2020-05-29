@@ -218,7 +218,7 @@ function spliting() {
     var friends = [];
 
     $('#chose-frnd-btn').on('click', function() {
-        $('#modal').show();
+        $('#select-frnd').show();
         var type = $('.select-expense-type option:selected').val();
         if(type == 1) {
             displayFriendsInExpenseForm(username);
@@ -233,7 +233,7 @@ function spliting() {
                         friends.push(member.val());
                     }
                 });
-                $('#modal').hide();
+                $('#select-frnd').hide();
                 $('#membersname').html(html);
                 console.log(friends);
             });
@@ -256,6 +256,20 @@ function spliting() {
                 $('#whopaid').html(html);
             } else {
                 $('.friendpaid').hide();
+            }
+            if(splitType == 5) {
+                $('#custom-split').show();
+                // var html = "<table cellpadding = '10px'><thead><th>Name</th><th>Paid</th><th>Owed</th></thead><tbody>";
+                var html = "<label>Name</label><label>Paid</label><label>Owed</label></div>";
+                for(var i = 0; i < friends.length; i++) {
+                    // html += "<tr><td>"+ friends[i]+"</td><td><input type='number' style='width: 50px;'></td><td><input type='number' style='width: 50px;'></td></tr>";
+                    html += "<label>"+ friends[i] +"</label>";
+                    html += "<input type='number' style='width: 50px; border: 1px solid black;'>";
+                    html += "<input type='number' style='width: 50px; border: 1px solid black;'>";
+
+                }
+                // html += "</tbody></table>";
+                $('#custom-split-content').html(html);
             }
         });
     });

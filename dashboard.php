@@ -12,6 +12,12 @@
             <!-- <input class="hello"type="checkbox" value="hello">Hello</input> -->
             <div id="display-friends"></div>
         </div>
+
+        <div class="sidebar-widget">
+            <h2 class="widget-title">My Groups</h2>
+            <!-- <input class="hello"type="checkbox" value="hello">Hello</input> -->
+            <div id="display-grp"></div>
+        </div>
         
     </aside>
     
@@ -48,13 +54,13 @@
                     <span>With:</span>
                     <span id = "membersname"></span>
                     <button id="chose-frnd-btn"class="btn">Select</button>
-                    <div class="" id="modal">
-                        <div class="" id="modal-form">
+                    <div id="select-frnd" class="modal">
+                        <div class="modal-form">
                             <h2>Select Friends</h2>
                             <div id = "select-frnd-content" class="modal-content">
                             
                             </div>
-                            <div id="close-btn">X</div>
+                            <div class="modal-close-btn">X</div>
                         </div>
                     </div>
                 </div>
@@ -68,6 +74,16 @@
                     <label>Who paid</label>
                     <select id = "whopaid">
                     </select>
+                </div>
+
+                <div class="modal" id="custom-split">
+                    <div class="modal-form" id="custom-split-form">
+                        <h2>Custom splitting</h2>
+                        <div id="custom-split-content" class="modal-content grid-container">
+                            
+                        </div>
+                        <div class="modal-close-btn">X</div>
+                    </div>
                 </div>
 
                 <div class="form-field col">
@@ -122,9 +138,24 @@
             <br>
             <div id="searchResults"></div>
         </div>
+
+        <div class="sidebar-widget">
+            <h2 class="widget-title">Create Group</h2>
+            <div class="widget-field">
+                <label>Group Name</label>
+                <input name="friend" id="create-grp" type="text" style="text-transform:lowercase" max-length="40" required>
+            </div>
+            <p id="add-response-message" class="error"></p>
+            <div>
+                <button id="create-grp-btn" class="btn"> Create </button>
+            </div>
+            <p id="success-message" style="display: none;">Success message</p>
+            <br>
+            <!-- <div id="searchResults"></div> -->
+        </div>
         <!-- <div class="btn" id="checked">Hello</div> -->
             
-        </aside>
+    </aside>
 </div>
 <script src = "./js/dashboard.js"></script>
 <script>
@@ -157,8 +188,8 @@
             addFriend(username, friend);
         });
     
-        $('#close-btn').on('click', function() {
-            $('#modal').hide();
+        $('.modal-close-btn').on('click', function() {
+            $('.modal').hide();
         });        
     });
     

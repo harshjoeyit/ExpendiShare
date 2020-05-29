@@ -284,9 +284,11 @@ class misc {
 
         try {
             for($i = 0; $i < count($friend); $i++) {
-                if($whoPaid == $friend[$i])
-                    continue;
-                $this->sql->query = "INSERT INTO expense(paidBy,owedBy, paidAmount, owedAmount, category, description, date, type) values ('$whoPaid', '$friend[$i]', '$amount', '$owedAmount', '$category', '$description', '$todays_date', 1)";
+                $owedBy = $friend[$i];
+                if($whoPaid == $friend[$i]) {
+                    $owedBy = $username;
+                }
+                $this->sql->query = "INSERT INTO expense(paidBy,owedBy, paidAmount, owedAmount, category, description, date, type) values ('$whoPaid', '$owedBy', '$amount', '$owedAmount', '$category', '$description', '$todays_date', 1)";
                 $this->sql->process();
             }
             // if($whoPaid != $username)

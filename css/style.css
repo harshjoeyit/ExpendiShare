@@ -92,10 +92,17 @@
       margin: 1em 0;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
   }
   .col {
       display: flex;
       flex-direction: column;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 0.5em;
   }
   
   .intro-img {
@@ -229,7 +236,7 @@
             Modal form
 ----------------------------------*/
 
-#modal {
+.modal {
     background: rgba(0, 0, 0, 0.7);
     position: fixed;
     left: 0;
@@ -240,7 +247,7 @@
     display: none;
 }
 
-#modal-form {
+.modal-form {
     background: var(--bg-clr);
     width: 30%;
     position: relative;
@@ -249,14 +256,14 @@
     padding: 1em;
     border-radius: 4px;
 }
-#modal-form h2 {
+.modal-form h2 {
     margin: 0 0 15px;
     padding: 10px;
     border: 1px solid var(--txt-clr);
 
 }
 
-#close-btn {
+.modal-close-btn {
     background-color:var(--txt-clr);
     color: var(--clr-5);
     width: 30px;
