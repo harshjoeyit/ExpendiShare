@@ -213,9 +213,40 @@ function addExpense(username, expenseType, splitType, friends, amount, category,
     });
 }
 
+function addCustomExpense(username, expenseType, friends,amount, owedAmount,expenseCategory, description) {
+    var data = {
+        'action': 'addIndividualCustomExpense',
+        'username' : username,
+        'splitType' : 5,
+        'members' : friends,
+        'amountPaid' : amount,
+        'owedAmount': owedAmount,
+        'description' : description,
+        'category' : expenseCategory,
+        'whoPaid' : username,
+    };
+
+    $.ajax({
+        url: 'ajax.php',
+        dataType: 'json',
+        data : data,
+        method: 'POST',
+        success: function(data) {
+            console.log("succes");
+            console.log(data);
+        },
+        error: function(error, status) {
+            console.log(status);
+            console.log(error);
+        }
+    });
+    
+}
+
 
 function spliting() {
     var friends = [];
+    var owedAmount = []; //use only in case of custom split
 
     $('#chose-frnd-btn').on('click', function() {
         $('#select-frnd').show();
@@ -259,18 +290,27 @@ function spliting() {
             }
             if(splitType == 5) {
                 $('#custom-split').show();
-                // var html = "<table cellpadding = '10px'><thead><th>Name</th><th>Paid</th><th>Owed</th></thead><tbody>";
-                var html = "<label>Name</label><label>Paid</label><label>Owed</label></div>";
+                var html = "<label><h3>Name</h3></label><label><h3>Owed</h3></label>";
                 for(var i = 0; i < friends.length; i++) {
-                    // html += "<tr><td>"+ friends[i]+"</td><td><input type='number' style='width: 50px;'></td><td><input type='number' style='width: 50px;'></td></tr>";
                     html += "<label>"+ friends[i] +"</label>";
-                    html += "<input type='number' style='width: 50px; border: 1px solid black;'>";
-                    html += "<input type='number' style='width: 50px; border: 1px solid black;'>";
-
+                    html += "<input type='number' name='custom-split-amount'style='width: 50px; border: 1px solid black;'>";
                 }
-                // html += "</tbody></table>";
+                html += "<button id='custom-split-btn'class='btn'>Save</button>";
                 $('#custom-split-content').html(html);
             }
+        });
+
+        $('#custom-split').on('click', '#custom-split-btn', function() {
+            console.log("Clicked");
+            $('input[name="custom-split-amount"]').each(function() {
+                
+                var x = $(this).val();
+                if(x == "")
+                    x = 0;
+                owedAmount.push(Number(x));
+            });
+            console.log(owedAmount);
+            $('#custom-split').hide();
         });
     });
 
@@ -292,8 +332,16 @@ function spliting() {
         console.log(expenseCategory);
         console.log(description);
         console.log(whoPaid);
+        if(expenseType == 1) {
+            if(splitType != 5) {
+                addExpense(username, expenseType, splitType, friends, amount, expenseCategory, description, whoPaid);
+            }
+            if(splitType == 5) {
+                addCustomExpense(username, expenseType, friends,amount, owedAmount,expenseCategory, description);
+            }
+        }
+        
 
-        addExpense(username, expenseType, splitType, friends, amount, expenseCategory, description, whoPaid) 
 
     });
 }

@@ -306,6 +306,49 @@ class misc {
 
     }
 
+    public function addIndividualCustomExpense($username, $friend, $splitType, $amountPaid, $owedAmount, $category, $description, $whoPaid) {
+        $amountPaid = $this->sql->escape($amountPaid);
+        // $owedAmount = $this->sql->escape($owedAmount);
+        $description = $this->sql->escape($description);
+        $todays_date = date('Y-m-d H:i:s');
+
+        // check amount
+        if($amount < 0) {
+            $result['status'] = -1;
+            $result['msg'] = "Amount is improper!";
+            return $result;
+        }
+
+         // add check for invalid characters 
+        // category and description
+        if(strcmp($category, "") == 0 || strcmp($description, "") == 0) {
+            $result['status'] = -1;
+            $result['msg'] = "Category or description not filled!";
+            return $result;
+        }
+
+        try {
+            for($i = 0; $i < count($friend); $i++) {
+                $owedBy = $friend[$i];
+                $owed = $owedAmount[$i];
+                $this->sql->query = "INSERT INTO expense(paidBy,owedBy, paidAmount, owedAmount, category, description, date, type) values ('$whoPaid', '$owedBy', '$amountPaid', '$owed', '$category', '$description', '$todays_date', 1)";
+                $this->sql->process();
+            }
+            // if($whoPaid != $username)
+
+            
+        } catch(Exception $e) {
+            $result['status'] = -1;
+            $result['mg'] = "Some server error!";
+            return $result;
+        }
+
+        $result['status'] = 1;
+        $result['msg'] = "Split Done!";
+        return $result;
+
+    }
+
     
 }
 ?>

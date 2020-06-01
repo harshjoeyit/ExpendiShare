@@ -126,6 +126,23 @@
             $result['msg'] = $check['msg'];
             echo json_encode($result);
 
+        } else if($_POST['action'] == 'addIndividualCustomExpense') {
+            $username = $_POST['username'];
+            $whoPaid = $_POST['whoPaid'];
+            $members = $_POST['members'];
+            $splitType = $_POST['splitType'];
+            $amountPaid = $_POST['amountPaid'];
+            $owedAmount = $_POST['owedAmount'];
+            $category = $_POST['category'];
+            $description = $_POST['description'];
+            
+
+            $check = $misc->addIndividualCustomExpense($username, $members, $splitType, $amountPaid, $owedAmount, $category, $description, $whoPaid);
+
+
+            $result['success'] = $check['status'];
+            $result['msg'] = $check['msg'];
+            echo json_encode($result);
         }
     }
 

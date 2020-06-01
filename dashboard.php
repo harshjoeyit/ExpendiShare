@@ -80,7 +80,6 @@
                     <div class="modal-form" id="custom-split-form">
                         <h2>Custom splitting</h2>
                         <div id="custom-split-content" class="modal-content grid-container">
-                            
                         </div>
                         <div class="modal-close-btn">X</div>
                     </div>
