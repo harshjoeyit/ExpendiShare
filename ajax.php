@@ -170,6 +170,25 @@
             }
 
             echo json_encode($result);
+        } else if($_POST['action'] == 'groupSearch') {
+            $username = $_POST['username'];
+            $groupname = $_POST['searchData'];
+
+            $check = $sql->getdatas('groups', 'grp_name', $groupname, 'created_by', $username);
+            if(count($check) > 0) {
+                $result['status'] = 0;
+                $result['msg'] = "Group Already Exist";
+            } else {
+                $result['status'] = 1;
+                $result['msg'] = "Available";
+            }
+
+            echo json_encode($result);
+        } else if($_POST['action'] == 'displayGroups') {
+            $username = $_POST['username'];
+            $result = $misc->displayGroups($username);
+
+            echo json_encode($result);
         }
     }
 

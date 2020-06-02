@@ -349,11 +349,37 @@ function spliting() {
 
 /*--------------------------Groups ----------------------------- */
 
-// $('#create-grp').keyup(function() {
-//     var grpName = $('input[name="groupname"]').val();
-//     console.log(grpName);
-//     // console.log("hello");
-// });
+$('#create-grp').keyup(function() {
+    var grpName = $('input[name="groupname"]').val();
+    console.log(grpName);
+
+    var data = {
+        'action' : 'groupSearch',
+        'searchData' : grpName,
+        'username': username
+    };
+    $.ajax({
+        url: 'ajax.php',
+        dataType : 'json',
+        data: data,
+        method: 'POST',
+        success: function(data) {
+            // console.log(data);
+            if(data.status == 0) {
+                $('#add-response-message-create-grp').removeClass(" error");
+                $('#add-response-message-create-grp').addClass("success");
+
+            } else {
+                $('#add-response-message-create-grp').addClass(" error");
+                $('#add-response-message-create-grp').removeClass(" success");
+            }
+            $('#add-response-message-create-grp').html(data.msg);
+        },
+        error: function(error, status) {
+            console.log(status);
+        }
+    });
+});
 
 
 
@@ -389,6 +415,33 @@ function createGroup(groupname, members) {
         },
         error: function(error, status) {
             console.log(status);
+        }
+    });
+}
+
+/* ------------------------- Display Groups -------------------------*/
+
+function displayGroups(username) {
+    var data = { 
+        'action': 'displayGroups',
+        'username': username
+    };
+    $.ajax({
+        url: "ajax.php",
+        method: "POST",
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log("Display groups ajax call");
+            // console.log(data);
+            var html = "";
+            for(var i = 0; i < data.length; i++) {
+                html += "<li>"+data[i]+"</li>";
+            }
+            $('#display-grp').html(html);
+        },
+        error: function () {
+            console.log("ajax error is group display");
         }
     });
 }

@@ -381,12 +381,13 @@ class misc {
         $result['username'] = $username;
 
         return $result;
-
-
-        
     }
-    
 
-    
+    public function displayGroups($username) {
+        $username = $this->sql->escape($username);
+        $groups = $this->sql->getDistinctDatas('grp_name', 'groups', 'created_by', $username);
+        
+        return $groups;
+    }
 }
 ?>
