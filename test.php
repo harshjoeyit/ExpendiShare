@@ -54,6 +54,16 @@ $sql = new sql();
 //     $sql->process();
 // }
 
-print_r(data);
+// print_r(data);
+
+$groupname = "test";
+$username = "aman";
+
+// $sql->query = "INSERT INTO groups(grp_name, created_by) values ('$groupname', '$username')";
+// $sql->process();
+$groupId = 1;
+$member = "fireplayer2020";
+$sql->query = "INSERT INTO groups_members(grp_id, grp_members) values ('$groupId', '$member')";
+$sql->process();
 
 ?>

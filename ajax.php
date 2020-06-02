@@ -143,6 +143,33 @@
             $result['success'] = $check['status'];
             $result['msg'] = $check['msg'];
             echo json_encode($result);
+        } else if($_POST['action'] == 'addGroup') {
+            $username = $_POST['username'];
+            $groupMembers = $_POST['groupMembers'];
+            $groupname = $_POST['groupname'];
+            
+            $result = $misc->addGroup($username, $groupname, $groupMembers);
+
+            if($result['status'] == -4) {
+                $result['msg'] = "You alredy have a group by this name";
+
+            } else if($result['status'] == -3) {
+                $result['msg'] = "Group Name Invalid";
+            
+            } else if($result['status'] == -2) {
+                $result['msg'] = "Member name invalid";
+            
+            } else if($result['status'] == -1) {
+                $result['msg'] = "At least one more member required";
+            
+            } else if($result['status'] == 0) {
+                $result['msg'] = "Some database error";
+            
+            } else {
+                $result['msg'] = "Group Added!";
+            }
+
+            echo json_encode($result);
         }
     }
 

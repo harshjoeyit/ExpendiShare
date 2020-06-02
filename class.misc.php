@@ -349,6 +349,44 @@ class misc {
 
     }
 
+    public function addGroup($username, $groupname, $members) {
+        // $groupname = $this->sql->escape($groupname);
+        if(count($members) == 0) {
+            $result['status'] = -1;
+            return $result;
+        }
+        
+
+        try {
+
+            $this->sql->query = "INSERT INTO groups(grp_name, created_by) values('$groupname', '$username')";
+            $this->sql->process();
+
+            $groupId = $this->sql->getData('grp_id', 'groups', 'grp_name', $groupname, 'created_by', $username);
+
+            for($i = 0; $i < count($members); $i++) {
+                $member = $members[$i];
+                $this->sql->query = "INSERT INTO groups_members(grp_id, grp_members) values ('$groupId', '$member')";
+                $this->sql->process();
+            }
+        } catch(Exception $e) {
+            $result['status'] = 0;
+            return $result;
+        }
+
+        $result['groupId'] = $groupId;
+        $result['status'] = 1;
+        $result['members'] = $members;
+        $result['groupname'] = $groupName;
+        $result['username'] = $username;
+
+        return $result;
+
+
+        
+    }
+    
+
     
 }
 ?>

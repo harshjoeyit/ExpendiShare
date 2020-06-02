@@ -365,8 +365,30 @@ function spliting() {
 //     console.log(grpName);
 //     createGroup(grpName);
 // });
-// function createGoup(groupName) {
-//     console.log("hello9");
-// }
 
 
+
+function createGroup(groupname, members) {
+    console.log(groupname);
+    console.log(members);
+
+    var data = {
+        'action' : 'addGroup',
+        'groupMembers' : members,
+        'groupname' : groupname,
+        'username' : username 
+    };
+
+    $.ajax({
+        url: 'ajax.php',
+        dataType: 'json',
+        data: data,
+        method: 'POST',
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(error, status) {
+            console.log(status);
+        }
+    });
+}

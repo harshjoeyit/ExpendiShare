@@ -199,23 +199,34 @@
             $('.modal').hide();
         });
 
+
         $('#create-grp-btn').on('click', function() {
             console.log("create grp clicked");
+
             var grpName = $('input[name="groupname"]').val();
+            var members = [];
             console.log(grpName);
             if(grpName == "") {
                 $('#add-response-message-create-grp').html("Group Name cannot be blank");
             } else {
                 $('#create-grp-modal').show();
+                
                 displayFriendsInModalForm(username, "create-grp");
                 $('#create-grp-modal').on('click', '#create-grp-btn', function() {
-                    console.log(this);
+                    console.log("Selected Members data retrived");
+                    $('#create-grp-content input[type="checkbox"]').each(function() {
+                    var member = $(this);
+                    if(member.is(":checked")) {
+                        members.push(member.val());
+                    }
+                    });
+                    $('#create-grp-modal').hide();
+                    // console.log(members);
+                    createGroup(grpName, members);
                 });
                 
-
-                // createGroup(grpName);
             }
-        });       
+        }); 
     });
     
 </script>
