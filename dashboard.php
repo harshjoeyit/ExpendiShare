@@ -142,11 +142,19 @@
             <h2 class="widget-title">Create Group</h2>
             <div class="widget-field">
                 <label>Group Name</label>
-                <input name="friend" id="create-grp" type="text" style="text-transform:lowercase" max-length="40" required>
+                <input name="groupname" id="create-grp" type="text" style="text-transform:lowercase" max-length="40" required>
             </div>
-            <p id="add-response-message" class="error"></p>
+            <p id="add-response-message-create-grp" class="error"></p>
             <div>
                 <button id="create-grp-btn" class="btn"> Create </button>
+            </div>
+            <div class="modal" id="create-grp-modal">
+                <div class="modal-form" id="create-grp-modal-from">
+                    <h2>Select Members</h2>
+                    <div id="create-grp-content" class="modal-content">
+                    </div>
+                    <div class="modal-close-btn">X</div>
+                </div>
             </div>
             <p id="success-message" style="display: none;">Success message</p>
             <br>
@@ -189,7 +197,25 @@
     
         $('.modal-close-btn').on('click', function() {
             $('.modal').hide();
-        });        
+        });
+
+        $('#create-grp-btn').on('click', function() {
+            console.log("create grp clicked");
+            var grpName = $('input[name="groupname"]').val();
+            console.log(grpName);
+            if(grpName == "") {
+                $('#add-response-message-create-grp').html("Group Name cannot be blank");
+            } else {
+                $('#create-grp-modal').show();
+                displayFriendsInModalForm(username, "create-grp");
+                $('#create-grp-modal').on('click', '#create-grp-btn', function() {
+                    console.log(this);
+                });
+                
+
+                // createGroup(grpName);
+            }
+        });       
     });
     
 </script>

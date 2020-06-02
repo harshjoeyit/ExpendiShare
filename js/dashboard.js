@@ -129,7 +129,7 @@ function addFriend(username, friend) {
     });
 }
 
-function displayFriendsInExpenseForm(username) {
+function displayFriendsInModalForm(username, modalBoxId) {
     $.ajax({
         url: "ajax.php",
         method: "POST",
@@ -144,8 +144,9 @@ function displayFriendsInExpenseForm(username) {
                 "</input>" + "<br>"
             }
             
-            html += '<button type="submit" id="select-frnds-btn" class="btn">Save</button>';
-            $('#select-frnd-content').html(html);
+            html += '<button type="submit" id="' + modalBoxId + '-btn" class="btn">Save</button>';
+            var selector = "#"+ modalBoxId +"-content";
+            $(selector).html(html);
 
         },
         error: function(error, status) {
@@ -252,7 +253,7 @@ function spliting() {
         $('#select-frnd').show();
         var type = $('.select-expense-type option:selected').val();
         if(type == 1) {
-            displayFriendsInExpenseForm(username);
+            displayFriendsInModalForm(username, "select-frnd");
             $(document).on('click','#select-frnds-btn', function(){
                 console.log("Selected data retrived");
                 var html = "";
@@ -345,5 +346,27 @@ function spliting() {
 
     });
 }
+
+/*--------------------------Groups ----------------------------- */
+
+// $('#create-grp').keyup(function() {
+//     var grpName = $('input[name="groupname"]').val();
+//     console.log(grpName);
+//     // console.log("hello");
+// });
+
+
+
+/*--------------------- Create Group --------------------------- */
+
+// $('#create-grp-btn').on('click', function() {
+//     console.log("create grp clicked");
+//     var grpName = $('input[name="groupname"]').val();
+//     console.log(grpName);
+//     createGroup(grpName);
+// });
+// function createGoup(groupName) {
+//     console.log("hello9");
+// }
 
 
