@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (!isset($_SESSION['user'])) {
+        header("Location: ./index.php");
+    }
     $title = "Dashboard | ExpendiShare";
     include_once('components/header.php');
 ?>
@@ -50,6 +53,14 @@
                         <option name="expensetype" value="2">Group</option>
                     </select>
                 </div><br>
+                <div class="form-field select" id="select-group">
+                    <label>Select Group</label>
+                    <select class = "group-data">
+                        <option name="expensetype" selected value="selectexpensetype" disabled>Select Expense Type</option>
+                        <option name="expensetype" value="1">Individuals</option>
+                        <option name="expensetype" value="2">Group</option>
+                    </select>
+                </div>
                 <div class="form-field row" id = "splitingmembers" style="justify-content: center">
                     <span>With:</span>
                     <span id = "membersname"></span>
@@ -164,7 +175,6 @@
             
     </aside>
 </div>
-<script src = "./js/dashboard.js"></script>
 <script>
     $(document).ready(function() {
 
@@ -178,6 +188,7 @@
 
         $('#add-expense').hide();
         $('.show-expense').hide();
+        $('#select-group').hide();
 
         $('#add-expense-btn').click(function () {
             $('.show-expense').hide();
@@ -230,16 +241,14 @@
                         displayGroups(username);
 
                     });
-
                 }
             }
-
-
-            
         }); 
     });
     
 </script>
+<script src = "./js/dashboard.js"></script>
+
 <?php
     include_once('components/footer.php');
 ?>

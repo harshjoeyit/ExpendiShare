@@ -389,5 +389,76 @@ class misc {
         
         return $groups;
     }
+
+    public function displayGroupsMembers($username, $groupName) {
+        $data = $this->sql->getDataOnlyOne('groups', 'grp_name', $groupName, 'created_by', $username);
+        $groupId = $data['grp_id'];
+        $members = $this->sql->getDatas('groups_members', 'grp_id', $groupId);
+
+        return $members;
+    }
+
+    public function addGroupExpense($username, $members, $splitType, $amount, $category, $description, $whoPaid) {
+        $amount = $this->sql->escape($amount);
+        $description = $this->sql->escape($description);
+        $dateToday = date('Y-m-d H:i:s');
+        $groupId = $this->sql->getData('grp_id', 'groups', 'grp_name', $groupName, 'created_by', $username);
+
+        // check amount
+        if($amount <= 0) {
+            $result['status'] = -1;
+            $result['msg'] = "Amount is improper!";
+            return $result;
+        }
+
+         // add check for invalid characters 
+        // category and description
+        if(strcmp($category, "") == 0 || strcmp($description, "") == 0) {
+            $result['status'] = -1;
+            $result['msg'] = "Category or description not filled!";
+            return $result;
+        }
+
+        $owedAmount = $amount;
+        if($splitType == 1 || $splitType == 2) {
+            $owedAmount = $owedAmount / (count($members) + 1);
+        } else if($splitType == 3) {
+            $owedAmount = $owedAmount / count($members);
+        }
+
+
+        try {
+            // 1. Group Expense Table
+            $this->sql->query = "INSERT INTO `group_expense` (groupId, addedBy, amount, category, description, date) values('$groupId', '$username', '$amount', '$category', '$description', '$dateToday') ";
+            $this->sql->process();
+
+            // 2. Get the group expense id
+            $this->sql->query = "SELECT groupExpenseId FROM group_expense WHERE groupId = '$groupId' and addedBy = '$username' and amount = '$amount' and description = '$description' and category = '$category' and date = '$dateToday' ";
+            $res = $this->sql->process();
+            $row = mysqli_fetch_assoc($res);
+            $groupExpenseId = $row['groupExpenseId'];
+
+            // 3. Store the actual Transactions
+            for($i = 0; $i < count($members); $i++) {
+                $owedBy = $members[$i];
+                if($whoPaid == $members[$i]) {
+                    $owedBy = $username;
+                }
+                $this->sql->query = "INSERT INTO `group_transactions` (groupExpenseId, paidBy, amount) values('$groupExpenseId', '$name', '$mon') ";
+                $this->sql->process();
+            }
+
+            
+        } catch(Exception $e) {
+            $result['status'] = -1;
+            $result['mg'] = "Some server error!";
+            return $result;
+        }
+
+        $result['status'] = 1;
+        $result['msg'] = "Split Done!";
+        return $result;
+
+    }
 }
 ?>

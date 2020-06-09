@@ -61,9 +61,21 @@ $username = "aman";
 
 // $sql->query = "INSERT INTO groups(grp_name, created_by) values ('$groupname', '$username')";
 // $sql->process();
-$groupId = 1;
-$member = "fireplayer2020";
-$sql->query = "INSERT INTO groups_members(grp_id, grp_members) values ('$groupId', '$member')";
-$sql->process();
+// $groupId = 1;
+// $member = "fireplayer2020";
+// $sql->query = "INSERT INTO groups_members(grp_id, grp_members) values ('$groupId', '$member')";
+// $sql->process();
+$groupName = "Test";
+$groupId = $sql->getData('grp_id', 'groups', 'grp_name', $groupName, 'created_by', $username);
+// $data = $sql->getDataOnlyOne('groups', 'grp_name', $groupName, 'created_by', $username);
+// $groupId = $data['grp_id'];
+print_r($groupId);
+
+// $check = $misc->displayGroupsMembers($username, $groupName);
+// $members = [];
+//             for($i = 0; $i < count($check); $i++) {
+//                 array_push($members, $check[$i]['grp_members']);
+//             }
+//         print_r($members);
 
 ?>

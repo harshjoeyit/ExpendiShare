@@ -189,6 +189,18 @@
             $result = $misc->displayGroups($username);
 
             echo json_encode($result);
+        } else if($_POST['action'] == 'displayGroupsMembers') {
+            $username = $_POST['username'];
+            $groupname = $_POST['groupName'];
+            $check = $misc->displayGroupsMembers($username, $groupname);
+            $members = [];
+            for($i = 0; $i < count($check); $i++) {
+                array_push($members, $check[$i]['grp_members']);
+            }
+
+            $result = $members;
+            
+            echo json_encode($result);
         }
     }
 

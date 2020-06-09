@@ -1,15 +1,6 @@
 console.log("Dashboard.js included");
-
 var username = $('#user-profile').html();
 console.log(username);
-
-$('#user-profile').on('click', function() {
-    console.log("clicked");
-});
-
-$('#display-friends').on('click','li', function() {
-    console.log(this.textContent);
-});
 
 /* ---------- Display Friends ---------- */
 function displayFriends(username) {
@@ -35,6 +26,35 @@ function displayFriends(username) {
         }
     });
 }
+
+/* ------------------------- Display Groups -------------------------*/
+
+function displayGroups(username) {
+    var data = { 
+        'action': 'displayGroups',
+        'username': username
+    };
+    $.ajax({
+        url: "ajax.php",
+        method: "POST",
+        data: data,
+        dataType: 'json',
+        success: function (data) {
+            console.log("Display groups ajax call");
+            // console.log(data);
+            var html = "";
+            for(var i = 0; i < data.length; i++) {
+                html += "<li>"+data[i]+"</li>";
+            }
+            $('#display-grp').html(html);
+        },
+        error: function () {
+            console.log("ajax error is group display");
+        }
+    });
+}
+
+
 /* ---------- Live Search ---------- */
 function liveSearch() {
     function load_data(search) {
@@ -128,6 +148,40 @@ function addFriend(username, friend) {
         }
     });
 }
+/*-------------------------------Display Groups in Modal box -------------------------------------- */
+function displayGroupsMembersInModalForm(username, groupName, modalBoxId) {
+    var data = {
+        action : "displayGroupsMembers",
+        username : username,
+        groupName : groupName
+    };
+
+    $.ajax({
+        url: "ajax.php",
+        method: "POST",
+        dataType: "json",
+        data : data,
+        success:function(data) {
+            // console
+            console.log("hello");
+            console.log(data);
+            var html = "";
+            for(var i = 0; i < data.length; i++) {
+                html += "<input name='withfriends' type='checkbox' value='" + data[i] + "'>" + data[i] + 
+                "</input>" + "<br>"
+            }
+            html += '<button type="submit" id="' + modalBoxId + '-btn" class="btn">Save</button>';
+            var selector = "#"+ modalBoxId +"-content";
+            $(selector).html(html);
+        },
+        error:function(error, status) {
+            console.log(status);
+        }
+    });
+
+}
+
+/*-------------------------------Display Friends in Modal box -------------------------------------- */
 
 function displayFriendsInModalForm(username, modalBoxId) {
     $.ajax({
@@ -155,6 +209,8 @@ function displayFriendsInModalForm(username, modalBoxId) {
         }
     });
 }
+
+/*--------------------------------------- Splitting Section --------------------------------------- */
 
 function displaySplitingTypes() {
     $.ajax({
@@ -206,6 +262,20 @@ function addExpense(username, expenseType, splitType, friends, amount, category,
         success: function(data) {
             console.log("succes");
             console.log(data);
+            $successMessage = $("#split-success-message");
+              console.log("split ajax call");
+              $successMessage.css('display', 'block');
+              $successMessage.html(data.msg);
+  
+              if (data.success == 1) {
+                  $successMessage.css('color', 'green');
+                  // To Do: clear all fields 
+              } else if (data.success == 0) {
+                  $successMessage.css('color', 'red');
+              } else {
+                  $successMessage.css('color', 'deeppink');
+              }
+              $successMessage.delay(1000).fadeOut(500);
         },
         error: function(error, status) {
             console.log(status);
@@ -244,17 +314,67 @@ function addCustomExpense(username, expenseType, friends,amount, owedAmount,expe
     
 }
 
-
+/*------------------------- Main Splitting Function ---------------------------------------- */
 function spliting() {
     var friends = [];
     var owedAmount = []; //use only in case of custom split
+
+    $('.select-expense-type').change(function() {
+        var expenseType = $('.select-expense-type option:selected').val();
+        if(expenseType == 2) {
+
+            $('#select-group').show();
+            var data = { 
+                'action': 'displayGroups',
+                'username': username
+            };
+            $.ajax({
+                url: "ajax.php",
+                method: "POST",
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                    var html = '<option name="selectgroup" selected value="selectgroup" disabled>Select Group</option>';
+                    for(var i = 0; i < data.length; i++) {
+                        html += '<option name="selectgroup" value="'+ data[i] +'">' + data[i] + '</option>'
+                    }
+                    $('.group-data').html(html);
+                },
+                error: function () {
+                    console.log("ajax error is group display");
+                }
+            });
+
+            
+        } else {
+            $('#select-group').hide();
+        }
+    });
 
     $('#chose-frnd-btn').on('click', function() {
         $('#select-frnd').show();
         var type = $('.select-expense-type option:selected').val();
         if(type == 1) {
             displayFriendsInModalForm(username, "select-frnd");
-            $(document).on('click','#select-frnds-btn', function(){
+            $(document).on('click','#select-frnd-btn', function(){
+                console.log("Selected data retrived");
+                var html = "";
+                $("#select-frnd-content input[type='checkbox']").each(function() {
+                    var member = $(this);
+                    if(member.is(":checked")) {
+                        // console.log(member.val());
+                        html += "<li>" + member.val() + "</li>";
+                        friends.push(member.val());
+                    }
+                });
+                $('#select-frnd').hide();
+                $('#membersname').html(html);
+                console.log(friends);
+            });
+        } else if(type == 2) {
+            var groupname = $('.group-data').val();
+            displayGroupsMembersInModalForm(username, groupname, "select-frnd");
+            $(document).on('click','#select-frnd-btn', function(){
                 console.log("Selected data retrived");
                 var html = "";
                 $("#select-frnd-content input[type='checkbox']").each(function() {
@@ -273,6 +393,7 @@ function spliting() {
     });
     
     $(function(){
+        
         $('#select-split-type').change(function() {
             var splitType = $('#select-split-type option:selected').val();
             console.log(splitType);
@@ -340,9 +461,9 @@ function spliting() {
             if(splitType == 5) {
                 addCustomExpense(username, expenseType, friends,amount, owedAmount,expenseCategory, description);
             }
+        } else if(expenseType == 2) {
+            console.log(owedAmount);
         }
-        
-
 
     });
 }
@@ -419,29 +540,49 @@ function createGroup(groupname, members) {
     });
 }
 
-/* ------------------------- Display Groups -------------------------*/
-
-function displayGroups(username) {
+//!IMPORTANT
+//? Why this function not returning the data??? 
+function getGroups(username) {
     var data = { 
         'action': 'displayGroups',
         'username': username
     };
+    var groups = [];
     $.ajax({
         url: "ajax.php",
         method: "POST",
         data: data,
         dataType: 'json',
-        success: function (data) {
-            console.log("Display groups ajax call");
-            // console.log(data);
-            var html = "";
-            for(var i = 0; i < data.length; i++) {
-                html += "<li>"+data[i]+"</li>";
-            }
-            $('#display-grp').html(html);
+        success: function(data) {
+            return data;
         },
         error: function () {
             console.log("ajax error is group display");
+        }
+    });
+    console.log("--");
+    console.log(groups);
+    return groups;
+}
+
+function getGroupMembers(username, groupname) {
+    var data = {
+        action : "displayGroupsMembers",
+        username : username,
+        groupName : groupname
+    };
+
+    $.ajax({
+        url: "ajax.php",
+        method: "POST",
+        dataType: "json",
+        data : data,
+        success:function(data) {
+            console.log(data);
+            return data;
+        },
+        error:function(error, status) {
+            console.log(status);
         }
     });
 }
