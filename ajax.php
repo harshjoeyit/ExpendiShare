@@ -106,6 +106,101 @@
             }
 
             echo json_encode($result);
+        } else if($_POST['action'] == 'displaySplitingTypes') {
+            $data = $sql->getDatas('spliting_types');
+            echo json_encode($data);
+        } else if($_POST['action'] == 'addIndividualExpense') {
+            $username = $_POST['username'];
+            $whoPaid = $_POST['whoPaid'];
+            $members = $_POST['members'];
+            $splitType = $_POST['splitType'];
+            $amount = $_POST['amount'];
+            $category = $_POST['category'];
+            $description = $_POST['description'];
+            
+
+            $check = $misc->addIndividualExpense($username, $members, $splitType, $amount, $category, $description, $whoPaid);
+
+
+            $result['success'] = $check['status'];
+            $result['msg'] = $check['msg'];
+            echo json_encode($result);
+
+        } else if($_POST['action'] == 'addIndividualCustomExpense') {
+            $username = $_POST['username'];
+            $whoPaid = $_POST['whoPaid'];
+            $members = $_POST['members'];
+            $splitType = $_POST['splitType'];
+            $amountPaid = $_POST['amountPaid'];
+            $owedAmount = $_POST['owedAmount'];
+            $category = $_POST['category'];
+            $description = $_POST['description'];
+            
+
+            $check = $misc->addIndividualCustomExpense($username, $members, $splitType, $amountPaid, $owedAmount, $category, $description, $whoPaid);
+
+
+            $result['success'] = $check['status'];
+            $result['msg'] = $check['msg'];
+            echo json_encode($result);
+        } else if($_POST['action'] == 'addGroup') {
+            $username = $_POST['username'];
+            $groupMembers = $_POST['groupMembers'];
+            $groupname = $_POST['groupname'];
+            
+            $result = $misc->addGroup($username, $groupname, $groupMembers);
+
+            if($result['status'] == -4) {
+                $result['msg'] = "You alredy have a group by this name";
+
+            } else if($result['status'] == -3) {
+                $result['msg'] = "Group Name Invalid";
+            
+            } else if($result['status'] == -2) {
+                $result['msg'] = "Member name invalid";
+            
+            } else if($result['status'] == -1) {
+                $result['msg'] = "At least one more member required";
+            
+            } else if($result['status'] == 0) {
+                $result['msg'] = "Some database error";
+            
+            } else {
+                $result['msg'] = "Group Added!";
+            }
+
+            echo json_encode($result);
+        } else if($_POST['action'] == 'groupSearch') {
+            $username = $_POST['username'];
+            $groupname = $_POST['searchData'];
+
+            $check = $sql->getdatas('groups', 'grp_name', $groupname, 'created_by', $username);
+            if(count($check) > 0) {
+                $result['status'] = 0;
+                $result['msg'] = "Group Already Exist";
+            } else {
+                $result['status'] = 1;
+                $result['msg'] = "Available";
+            }
+
+            echo json_encode($result);
+        } else if($_POST['action'] == 'displayGroups') {
+            $username = $_POST['username'];
+            $result = $misc->displayGroups($username);
+
+            echo json_encode($result);
+        } else if($_POST['action'] == 'displayGroupsMembers') {
+            $username = $_POST['username'];
+            $groupname = $_POST['groupName'];
+            $check = $misc->displayGroupsMembers($username, $groupname);
+            $members = [];
+            for($i = 0; $i < count($check); $i++) {
+                array_push($members, $check[$i]['grp_members']);
+            }
+
+            $result = $members;
+            
+            echo json_encode($result);
         }
     }
 

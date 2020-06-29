@@ -27,15 +27,55 @@ $sql = new sql();
 // $data = sendmail('amantibrewal03@gmail.com', 'Hello');
 // print_r($data);
 
-$result = $sql->searchData('users', 'username', 'username', 'a');
-print_r($result);
-$res = $misc->displayFriends('aman');
-print_r($res);
-$username = 'aman';
-$friend = 'fireplayer2020';
-$sql->query = "INSERT INTO `friends` (username,friendname) values('$username', '$friend')";
-$sql->process();
-$sql->query = "INSERT INTO `friends` (username,friendname) values('$friend', '$username')";
-$sql->process();
+// $result = $sql->searchData('users', 'username', 'username', 'a');
+// print_r($result);
+// $res = $misc->displayFriends('aman');
+// print_r($res);
+// $username = 'aman';
+// $friend = 'fireplayer2020';
+// $sql->query = "INSERT INTO `friends` (username,friendname) values('$username', '$friend')";
+// $sql->process();
+// $sql->query = "INSERT INTO `friends` (username,friendname) values('$friend', '$username')";
+// $sql->process();
+
+// $friend = ['aman', 'harshit'];
+// print_r($friend);
+
+// $whoPaid = 'harshit';
+// $amount = 100;
+// $owedAmount = 33;
+// $category = 2;
+// $description = "Test";
+// $todays_date = date('Y-m-d H:i:s');
+
+
+// for($i = 0; $i < count($friend); $i++) {
+//     $sql->query = "INSERT INTO expense(paidBy,owedBy, paidAmount, owedAmount, category, description, date, type) values ('$whoPaid', '$friend[$i]', '$amount', '$owedAmount', '$category', '$description', '$todays_date', 1)";
+//     $sql->process();
+// }
+
+// print_r(data);
+
+$groupname = "test";
+$username = "aman";
+
+// $sql->query = "INSERT INTO groups(grp_name, created_by) values ('$groupname', '$username')";
+// $sql->process();
+// $groupId = 1;
+// $member = "fireplayer2020";
+// $sql->query = "INSERT INTO groups_members(grp_id, grp_members) values ('$groupId', '$member')";
+// $sql->process();
+$groupName = "Test";
+$groupId = $sql->getData('grp_id', 'groups', 'grp_name', $groupName, 'created_by', $username);
+// $data = $sql->getDataOnlyOne('groups', 'grp_name', $groupName, 'created_by', $username);
+// $groupId = $data['grp_id'];
+print_r($groupId);
+
+// $check = $misc->displayGroupsMembers($username, $groupName);
+// $members = [];
+//             for($i = 0; $i < count($check); $i++) {
+//                 array_push($members, $check[$i]['grp_members']);
+//             }
+//         print_r($members);
 
 ?>
