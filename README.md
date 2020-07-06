@@ -1,7 +1,7 @@
-
-# Avishkar 2019 - Annual Techfeast of MNNIT ALLAHABAD
-# Event Name - Webster
-# Project Name - ExpendiShare
+# ExpendiShare
+Avishkar 2019 - Annual Techfeast of MNNIT ALLAHABAD
+Event Name - Webster
+Project Name - ExpendiShare
 
 # Project Description -
 This website will help you manage your expenses between friends. So, you don't need to worry about it while you are on vacation or small outing.
@@ -14,5 +14,5 @@ Backend -  PHP
 Database - MySql
 Tools - Git and VScode
 
-Team Name: webPLASH
+Team Name: web_PLASH
 Team Member: Harshit Gangwar and Aman Tibrewal
