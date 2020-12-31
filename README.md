@@ -1,9 +1,21 @@
-# ExpendiShare - Split Bills Easily
+# ExpendiShare
+Split Bills Easily
 
-* One-stop platform for splitting bills of food, rent, shopping etc.
-* Handles both Group and One-to-one bill-splitting.
-* Simplified User Interface and User-Authentication using e-mail
+### How to run?
+- clone the repository
+- install [xampp](https://www.apachefriends.org/index.html) on windows or [lampp](https://ubuntu.com/server/docs/lamp-applications) on linux
+- start the `apache`, `mysql` servers
+- open a browser and hit `http://localhost/{name of cloned repo}/index.php`, and it's done.
 
-AVISHKAR (Webster 2019)
-Team Name: web_PLASH
-Team Member: Harshit Gangwar and Aman Tibrewal
+### Features 
+* Split bills, rents, shopping expenses, travel expenses
+* User Authentication.
+* Add a friend or send invite via email
+* Create group and add friends to it.
+* Make one to one and group expense.
+* Settle expenses
+
+### Team: webPLASH
+* [Aman Tibrewal](https://github.com/amantibrewal310)
+* Harshit Gangwar
+
