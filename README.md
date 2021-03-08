@@ -19,3 +19,8 @@ Split Bills Easily
 * [Aman Tibrewal](https://github.com/amantibrewal310)
 * Harshit Gangwar
 
+### A sneak peek
+<img src="images/one.png" width="100%">
+<img src="images/two.png" width="100%">
+<img src="images/three.png" width="100%">
+<img src="images/four.png" width="100%">
